@@ -9,7 +9,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 2,
@@ -22,7 +22,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 3,
@@ -35,7 +35,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 4,
@@ -48,7 +48,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 5,
@@ -61,7 +61,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 6,
@@ -74,7 +74,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 7,
@@ -87,7 +87,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 8,
@@ -100,7 +100,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 9,
@@ -113,7 +113,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 10,
@@ -126,7 +126,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 11,
@@ -139,7 +139,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 12,
@@ -152,7 +152,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 13,
@@ -165,7 +165,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 14,
@@ -178,7 +178,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 15,
@@ -191,7 +191,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 16,
@@ -204,7 +204,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 17,
@@ -217,7 +217,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 18,
@@ -230,7 +230,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 19,
@@ -243,7 +243,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 20,
@@ -256,7 +256,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 21,
@@ -269,7 +269,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 22,
@@ -282,7 +282,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 23,
@@ -295,7 +295,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 24,
@@ -308,7 +308,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 25,
@@ -321,7 +321,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 26,
@@ -334,7 +334,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 27,
@@ -347,7 +347,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 28,
@@ -360,7 +360,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 29,
@@ -373,7 +373,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 30,
@@ -386,7 +386,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 31,
@@ -399,7 +399,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 32,
@@ -412,7 +412,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 33,
@@ -425,7 +425,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 34,
@@ -438,7 +438,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 35,
@@ -451,7 +451,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 36,
@@ -464,7 +464,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 37,
@@ -477,7 +477,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 38,
@@ -490,7 +490,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 39,
@@ -503,7 +503,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 40,
@@ -516,7 +516,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 41,
@@ -529,7 +529,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 42,
@@ -542,7 +542,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 43,
@@ -555,7 +555,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 44,
@@ -568,7 +568,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 45,
@@ -581,7 +581,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 46,
@@ -594,7 +594,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 47,
@@ -607,7 +607,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 48,
@@ -620,7 +620,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 49,
@@ -633,7 +633,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 50,
@@ -646,7 +646,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 51,
@@ -659,7 +659,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 52,
@@ -672,7 +672,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 53,
@@ -685,7 +685,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 54,
@@ -698,7 +698,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 55,
@@ -711,7 +711,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 56,
@@ -724,7 +724,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 57,
@@ -737,7 +737,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 58,
@@ -750,7 +750,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 59,
@@ -763,7 +763,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 60,
@@ -776,7 +776,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 61,
@@ -789,7 +789,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 62,
@@ -802,7 +802,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 63,
@@ -815,7 +815,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 64,
@@ -828,7 +828,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 65,
@@ -841,7 +841,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 66,
@@ -854,7 +854,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 67,
@@ -867,7 +867,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 68,
@@ -880,7 +880,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 69,
@@ -893,7 +893,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 70,
@@ -906,7 +906,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 71,
@@ -919,7 +919,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 72,
@@ -932,7 +932,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 73,
@@ -945,7 +945,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 74,
@@ -958,7 +958,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 75,
@@ -971,7 +971,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 76,
@@ -984,7 +984,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 77,
@@ -997,7 +997,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 78,
@@ -1010,7 +1010,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 79,
@@ -1023,7 +1023,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 80,
@@ -1036,7 +1036,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 81,
@@ -1049,7 +1049,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 82,
@@ -1062,7 +1062,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 83,
@@ -1075,7 +1075,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 84,
@@ -1088,7 +1088,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 85,
@@ -1101,7 +1101,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 86,
@@ -1114,7 +1114,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 87,
@@ -1127,7 +1127,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 88,
@@ -1140,7 +1140,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 89,
@@ -1153,7 +1153,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 90,
@@ -1166,7 +1166,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 91,
@@ -1179,7 +1179,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 92,
@@ -1192,7 +1192,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 93,
@@ -1205,7 +1205,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 94,
@@ -1218,7 +1218,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 95,
@@ -1231,7 +1231,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 96,
@@ -1244,7 +1244,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 97,
@@ -1257,7 +1257,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 98,
@@ -1270,7 +1270,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 99,
@@ -1283,7 +1283,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 100,
@@ -1296,7 +1296,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 101,
@@ -1309,7 +1309,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 102,
@@ -1322,7 +1322,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 103,
@@ -1335,7 +1335,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 104,
@@ -1348,7 +1348,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 105,
@@ -1361,7 +1361,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 106,
@@ -1374,7 +1374,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 107,
@@ -1387,7 +1387,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 108,
@@ -1400,7 +1400,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 109,
@@ -1413,7 +1413,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 110,
@@ -1426,7 +1426,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 111,
@@ -1439,7 +1439,7 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     },
     {
         "projectId": 112,
@@ -1452,6 +1452,6 @@
         "votes": "12",
         "accumulatedFunds": "500",
         "targetFunds": "1200",
-        "imageUrl": "../../../assets/no-image.jpg"
+        "imageUrl": "../../assets/no-image.jpg"
     }
 ]
