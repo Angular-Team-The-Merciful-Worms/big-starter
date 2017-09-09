@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProjectModule } from './project/project.module';
 import { ContactsComponent } from './contacts/contacts.component';
+import { LoginModalComponent } from './shared/login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    ContactsComponent
+    ContactsComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
