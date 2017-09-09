@@ -36,9 +36,13 @@ export class ProjectsListComponent implements OnInit {
   ngOnInit(): void {
 
     this.projectsFireService.getProjects()
-      .subscribe((response) => console.log(response));
+      .subscribe((list) => console.log(list));
 
     this.categoryFilter = this._route.snapshot.paramMap.get('category');
+
+    this.projectsFireService.getProjectsByCategory(this.categoryFilter)
+      .subscribe(project => console.log(project));
+
     this._projectService.getProjectsByCategory(this.categoryFilter)
       .subscribe(projects => this.projects = projects,
       error => this.errorMessage = <any>error);
