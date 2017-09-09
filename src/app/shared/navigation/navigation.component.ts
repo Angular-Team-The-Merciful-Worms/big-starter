@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-
-import { UserLoginComponent } from '../shared/user-login/user-login.component';
-import { RegisterFormComponent } from '../shared/register-form/register-form.component';
-
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '../core/authentication/auth.service';
+
+import { AuthService } from '../../core/auth.service';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @Component({
   selector: 'app-navigation',
@@ -34,5 +33,4 @@ export class NavigationComponent {
       }
     });
   }
-
 }

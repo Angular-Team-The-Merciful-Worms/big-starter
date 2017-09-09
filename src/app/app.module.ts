@@ -3,34 +3,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { ProjectModule } from './project/project.module';
-import { ContactsComponent } from './contacts/contacts.component';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
-import { AuthService } from './core/authentication/auth.service';
-import { LoginModule } from './shared/login.module';
-import { NavigationComponent } from './navigation/navigation.component';
-import { FooterComponent } from './footer/footer.component';
+import { AppComponent } from './app.component';
+import { WelcomeComponent } from './home/welcome.component';
+import { ProjectModule } from './project/project.module';
+import { ContactsComponent } from './contacts/contacts.component';
 
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    ContactsComponent,
-    NavigationComponent,
-    FooterComponent],
+    ContactsComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    CoreModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: 'contacts', component: ContactsComponent },
@@ -38,10 +34,9 @@ import { FooterComponent } from './footer/footer.component';
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' } // 404 to be implemented
     ]),
     ProjectModule,
-    LoginModule,
+    SharedModule,
     NgbModule.forRoot(),
   ],
   bootstrap: [AppComponent],
-  providers: [AuthService]
 })
 export class AppModule { }

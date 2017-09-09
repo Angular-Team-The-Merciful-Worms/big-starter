@@ -30,9 +30,8 @@
                 placeholder="Your Password">
             <div *ngIf="formErrors.password" class="error"> {{ formErrors.password }} </div>
         </div>
-
-        <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
-        <button [disabled]="!userForm.valid" type="submit" class="btn btn-success btn-block">Register</button>
+        <div *ngIf="userExists" class="error text-center">User with this email already exists </div>
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-success center-block">Register</button>
     </form>
 </div>
 

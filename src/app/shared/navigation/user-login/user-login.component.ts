@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { AuthService } from '../../core/authentication/auth.service';
+import { AuthService } from '../../../core/auth.service';
 
 @Component({
   selector: 'app-user-login',
@@ -12,7 +12,8 @@ import { AuthService } from '../../core/authentication/auth.service';
 })
 export class UserLoginComponent implements OnInit {
   userForm: FormGroup;
-  passReset = false; // set to true when password reset is triggered
+  passReset = false;
+  passResetEmailSent = false;
 
   formErrors = {
     'email': '',
@@ -65,19 +66,27 @@ export class UserLoginComponent implements OnInit {
   }
 
   /// Shared
-  private afterSignIn(): void {
-    // Do after login stuff here, such router redirects, toast messages, etc.
-    this.router.navigate(['/']);
-  }
+  private afterSignIn(): void { }
 
 
   login(): void {
-    this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password']);
+    const currentUser = {
+      email: this.userForm.value['email'],
+      password: this.userForm.value['password']
+    };
+
+    this.auth.emailLogin(currentUser)
+      .then(() => {
+        this.activeModal.close('Logged');
+      })
+      .catch(() => {
+        this.passReset = true;
+      });
   }
 
   resetPassword() {
     this.auth.resetPassword(this.userForm.value['email'])
-      .then(() => this.passReset = true);
+      .then(() => this.passResetEmailSent = true);
   }
 
   buildForm(): void {
@@ -85,14 +94,12 @@ export class UserLoginComponent implements OnInit {
       'email': ['', [
         Validators.required,
         Validators.email
-      ]
-      ],
+      ]],
       'password': ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
         Validators.minLength(6),
         Validators.maxLength(25)
-      ]
-      ],
+      ]],
     });
 
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -118,7 +125,6 @@ export class UserLoginComponent implements OnInit {
             }
           }
         }
-
       }
     }
   }

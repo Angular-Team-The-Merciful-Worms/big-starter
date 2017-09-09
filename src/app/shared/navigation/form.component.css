@@ -22,3 +22,18 @@
   .footer-text{
       font-size: 1.3em;
   }
+
+  .reset{
+    font-size: 1.2em;
+    color: green;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .reset-request{
+    font-size: 1.1em;
+  }
+
+  a:hover {
+    cursor:pointer;
+   }

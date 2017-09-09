@@ -25,18 +25,18 @@
           <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
           <button [disabled]="!userForm.valid" type="submit" class="btn btn-success btn-block">Login</button>
 
-          <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
-          <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+          <p class="reset-request text-center"><a *ngIf="passReset && !passResetEmailSent" class="help is-info" (click)="resetPassword()">Wrong username or password. Reset Password for {{userForm.value.email}}?</a></p>
+          <p *ngIf="passResetEmailSent" class="help is-info reset">Reset requested. Check your email for instructions.</p>
 
         </form>
       </div>
     </div>
 
     <div class="col-xs-5">
-      <p><a (click)="signInWithFacebook()" href="#" class="btn btn-social btn-facebook btn-block"><span class="fa fa-facebook"></span>Sign in with Facebook</a></p>
-      <p><a (click)="signInWithGoogle()" href="#" class="btn btn-social btn-google btn-block"><span class="fa fa-google"></span>Sign in with Google</a></p>
-      <p><a (click)="signInWithTwitter()" href="#" class="btn btn-social btn-twitter btn-block"><span class="fa fa-twitter"></span>Sign in with Twitter</a></p>
-      <p><a (click)="signInWithGithub()" href="#" class="btn btn-social btn-github btn-block"><span class="fa fa-github"></span>Sign in with GitHub</a></p>
+      <p><a (click)="signInWithFacebook(); activeModal.close('Logged')" class="btn btn-social btn-facebook btn-block"><span class="fa fa-facebook"></span>Sign in with Facebook</a></p>
+      <p><a (click)="signInWithGoogle(); activeModal.close('Logged')" class="btn btn-social btn-google btn-block"><span class="fa fa-google"></span>Sign in with Google</a></p>
+      <p><a (click)="signInWithTwitter(); activeModal.close('Logged')" class="btn btn-social btn-twitter btn-block"><span class="fa fa-twitter"></span>Sign in with Twitter</a></p>
+      <p><a (click)="signInWithGithub(); activeModal.close('Logged')" class="btn btn-social btn-github btn-block"><span class="fa fa-github"></span>Sign in with GitHub</a></p>
     </div>
   </div>
 </div>

@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../core/authentication/auth.service';
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../core/auth.service';
+
 
 @Component({
     selector: 'app-register-form',
     templateUrl: './register-form.component.html',
     styleUrls: ['../form.component.css']
 })
-
 export class RegisterFormComponent implements OnInit {
-
     userForm: FormGroup;
-
-    passReset = false; // set to true when password reset is triggered
+    userExists = false; // set to true when password reset is triggered
     formErrors = {
         'email': '',
         'password': '',
@@ -44,14 +42,30 @@ export class RegisterFormComponent implements OnInit {
         }
     };
 
-    constructor(private fb: FormBuilder, private auth: AuthService, public activeModal: NgbActiveModal) { }
+    constructor(
+        private fb: FormBuilder,
+        private auth: AuthService,
+        public activeModal: NgbActiveModal) { }
 
     ngOnInit(): void {
         this.buildForm();
     }
 
     signup(): void {
-        this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password']);
+        const user = {
+            email: this.userForm.value['email'],
+            password: this.userForm.value['password'],
+            firstname: this.userForm.value['firstname'],
+            lastname: this.userForm.value['lastname'],
+        };
+
+        this.auth.emailSignUp(user)
+            .then(() => {
+                this.activeModal.close('Registered');
+            })
+            .catch((error) => {
+                this.userExists = true;
+            });
     }
 
     buildForm(): void {
@@ -91,8 +105,9 @@ export class RegisterFormComponent implements OnInit {
 
                 // clear previous error message (if any)
                 this.formErrors[field] = '';
-                const control = form.get(field);
+                this.userExists = false;
 
+                const control = form.get(field);
                 if (control && control.dirty && !control.valid) {
                     const messages = this.validationMessages[field];
                     for (const key in control.errors) {
@@ -101,7 +116,6 @@ export class RegisterFormComponent implements OnInit {
                         }
                     }
                 }
-
             }
         }
     }
