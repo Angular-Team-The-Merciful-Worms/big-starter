@@ -26,7 +26,7 @@ hr.light {
 }
 
 a {
-    color: #C4BA07;
+    color: #AEA506;
     transition: all .35s;
 }
 
@@ -87,7 +87,7 @@ p {
 }
 
 .text-primary {
-    color: #C4BA07;
+    color: #F4EA2F;
 }
 
 .modal-content {
@@ -106,6 +106,10 @@ footer {
 
 .margin-top-0 {
     margin-top: 0;
+}
+
+.clearfix {
+    clear: both;
 }
 
 
@@ -156,7 +160,7 @@ footer {
     background-color: #f2f2f2;
 }
 
-.btn-default .badge {
+.btn-default {
     color: #fff;
     background-color: #222;
 }
