@@ -19,17 +19,14 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" data-toggle="modal" title="Login or register" href="#loginModal">Login</a>
+                    <a class="page-scroll" data-toggle="modal" title="Login or register" href="#loginModal">Account</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-
 <router-outlet></router-outlet>
-
 
 <footer id="footer">
     <div class="container-fluid">
@@ -56,15 +53,4 @@
     </div>
 </footer>
 
-<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body text-center">
-                <h2 class="text-center">Please login or register</h2>
-                <br>
-                <button class="btn btn-primary btn-lg" data-dismiss="modal" aria-hidden="true"> Login </button>
-                <button class="btn btn-primary btn-lg" data-dismiss="modal" aria-hidden="true"> Register </button>
-            </div>
-        </div>
-    </div>
-</div>
+<app-login-modal></app-login-modal>
