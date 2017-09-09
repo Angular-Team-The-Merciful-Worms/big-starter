@@ -1,7 +1,10 @@
-import { ProjectService } from './../project-service';
+
 import { IProject } from './../project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { ProjectService } from './../project-service';
+import { ProjectsFireService } from './../projectsFire.service';
 
 @Component({
   templateUrl: './projects-list.component.html',
@@ -26,9 +29,14 @@ export class ProjectsListComponent implements OnInit {
   }
 
   constructor(private _route: ActivatedRoute,
-    private _router: Router, private _projectService: ProjectService) { }
+    private _router: Router,
+    private _projectService: ProjectService,
+    private projectsFireService: ProjectsFireService) { }
 
   ngOnInit(): void {
+
+    this.projectsFireService.getProjects();
+
     this.categoryFilter = this._route.snapshot.paramMap.get('category');
     this._projectService.getProjectsByCategory(this.categoryFilter)
       .subscribe(projects => this.projects = projects,
