@@ -9,8 +9,8 @@ export class ProjectsService {
     constructor(private db: AngularFireDatabase) { }
 
     getProjects() {
-        return this.db.object('/projects').subscribe((response) => console.log(response));
-        // return this.db.list('projects')
+        return this.db.list('/projects').subscribe((response) => console.log(response));
+        // return this.db.object('/projects')
         //     .do(data => {
         //         console.log('All: ' + JSON.stringify(data)); // not casting
         //     });
