@@ -8,6 +8,11 @@ import { ProjectModule } from './project/project.module';
 import { ContactsComponent } from './contacts/contacts.component';
 import { LoginModalComponent } from './shared/login-modal/login-modal.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +22,9 @@ import { LoginModalComponent } from './shared/login-modal/login-modal.component'
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: 'contacts', component: ContactsComponent },
@@ -25,7 +33,7 @@ import { LoginModalComponent } from './shared/login-modal/login-modal.component'
     ]),
     ProjectModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: []
 })
 export class AppModule { }
