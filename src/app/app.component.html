@@ -18,8 +18,14 @@
                 <li><a [routerLink]="['/projects']" class="page-scroll">Projects</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="page-scroll" data-toggle="modal" title="Login or register" href="#loginModal">Account</a>
+                <li *ngIf="!auth.authenticated">
+                    <a class="page-scroll" data-toggle="modal" title="Login" (click)="openLoginModal()">Login</a>
+                </li>
+                <li *ngIf="!auth.authenticated">
+                    <a class="page-scroll" data-toggle="modal" title="Register" (click)="openRegisterModal()">Register</a>
+                </li>
+                <li *ngIf="auth.authenticated">
+                    <a class="page-scroll" data-toggle="modal" title="Profile">{{auth.currentUserDisplayName}}</a>
                 </li>
             </ul>
         </div>
@@ -52,5 +58,3 @@
         <span class="pull-right text-muted small"> ©2017 Telerik - The Merciful Worms</span>
     </div>
 </footer>
-
-<app-login-modal></app-login-modal>
