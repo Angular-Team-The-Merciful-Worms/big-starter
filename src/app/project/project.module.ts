@@ -1,23 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
+import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
+import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
+
+import { ProjectsFireService } from './projectsFire.service';
+import { ProjectService } from './project-service';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: 'projects', component: ProjectsListComponent },
+      { path: 'projects', component: ProjectCategoriesComponent },
+      { path: 'category/:category', component: ProjectsListComponent },
       {
         path: 'projects/:id',
-        //canActivate: [ProjectGuardService],
         component: ProjectItemComponent
       }
     ])
   ],
-  declarations: [ProjectsListComponent, ProjectItemComponent],
-  providers: []
+  declarations: [
+    ProjectsListComponent,
+    ProjectItemComponent,
+    ProjectCategoriesComponent,
+    CalculatePercentPipe
+  ],
+  providers: [
+    ProjectService,
+    ProjectsFireService
+  ]
 })
 export class ProjectModule { }

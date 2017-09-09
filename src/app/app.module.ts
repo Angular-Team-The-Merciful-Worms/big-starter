@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -35,6 +36,7 @@ import { CoreModule } from './core/core.module';
     ]),
     ProjectModule,
     SharedModule,
+    HttpClientModule,
     NgbModule.forRoot(),
   ],
   bootstrap: [AppComponent],
