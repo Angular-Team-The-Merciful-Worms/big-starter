@@ -78,16 +78,6 @@ export class AuthService {
       .catch(error => console.log(error));
   }
 
-
-  //// Anonymous Auth ////
-  anonymousLogin() {
-    return this.afAuth.auth.signInAnonymously()
-      .then((user) => {
-        this.authState = user;
-      })
-      .catch(error => console.log(error));
-  }
-
   //// Email/Password Auth ////
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -122,9 +112,7 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-
   //// Helpers ////
-
   private updateUserData(): void {
     // Writes user name and email to realtime db
     // useful if your app displays information about users or for admin features

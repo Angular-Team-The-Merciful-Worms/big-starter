@@ -27,6 +27,9 @@
                 <li *ngIf="auth.authenticated">
                     <a class="page-scroll" data-toggle="modal" title="Profile">{{auth.currentUserDisplayName}}</a>
                 </li>
+                <li *ngIf="auth.authenticated">
+                    <a class="page-scroll" data-toggle="modal" title="Profile" (click)="auth.signOut()">Log out</a>
+                </li>
             </ul>
         </div>
     </div>
