@@ -1,0 +1,59 @@
+@import url('../projects-list/projects-list.component.css');
+.project-item {
+    margin-top: 60px;
+}
+
+.project-img {
+    padding: 10px;
+}
+
+h3 {
+    font-size: 3em;
+    margin: 20px;
+}
+
+.project-img img {
+    width: 100%;
+}
+
+.project-img {
+    float: none;
+}
+
+.project-desc p {
+    text-indent: 30px;
+    margin: 10px;
+}
+
+.created-by {
+    font-size: 1.2em;
+    color: #ddd;
+    margin: 10px;
+}
+
+.created-by strong {
+    font-size: 1.5em;
+    color: #fff;
+    margin: 10px;
+}
+
+.badge-votes {
+    background-color: #1EAE1E;
+    padding: 10px 20px;
+    margin: 0 10px 20px 0;
+    display: inline-block;
+    width: 120px;
+}
+
+.badge-funds {
+    background-color: #DD6400;
+    padding: 10px 20px;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    width: 120px;
+}
+
+.progress {
+    height: 20px;
+    width: 60%
+}

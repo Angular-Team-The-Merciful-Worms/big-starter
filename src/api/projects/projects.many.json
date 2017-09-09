@@ -1,0 +1,44 @@
+// populate with existing, change id only
+// current number 3
+
+[
+    {
+        "projectId": 1,
+        "projectName": "Test project 1",
+        "authorName": "The Bees",
+        "description": "Test project one description. Short resume of what the project is about. Added some more description to see what happens if text is longer. Text must be cropped when display is in projects list and not cropped when project is displayed in single project page. If this is fixed this sentence must not be sisplayed in projects list page. If this is not fixed all text will be displayed and the view becomes ugly.",
+        "category": "FirstCategory",
+        "location": "Sofia",
+        "dateCreated": "09/10/2017",
+        "votes": 3,
+        "accumulatedFunds": 500,
+        "targetFunds": 1500,
+        "imageUrl": "../../assets/project1.jpg"
+    },
+    {
+        "projectId": 2,
+        "projectName": "Test project 2",
+        "authorName": "The Worms",
+        "description": "Test project two description. Short resume of what the project is about. Added some more description...",
+        "category": "SecondCategory",
+        "location": "Sofia",
+        "dateCreated": "09/11/2017",
+        "votes": 12,
+        "accumulatedFunds": 40,
+        "targetFunds": 45,
+        "imageUrl": "../../assets/project2.jpg"
+    },
+    {
+        "projectId": 3,
+        "projectName": "Test project 3",
+        "authorName": "Grassgoppers",
+        "description": "Test project two description. Short resume of what the project is about. Added some more description...",
+        "category": "ThirdCategory",
+        "location": "Sofia",
+        "dateCreated": "09/12/2017",
+        "votes": 233,
+        "accumulatedFunds": 10000,
+        "targetFunds": 15000,
+        "imageUrl": "../../assets/project3.jpg"
+    }
+]

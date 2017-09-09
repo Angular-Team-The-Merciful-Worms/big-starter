@@ -23,7 +23,6 @@
     "@angular/router": "^4.2.4",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.4",
     "@types/bootstrap": "^3.3.36",
-    "@types/firebase": "^2.4.32",
     "@types/jquery": "^3.2.12",
     "angularfire2": "^4.0.0-rc.2",
     "bootstrap": "^3.3.7",

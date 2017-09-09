@@ -15,12 +15,17 @@ import { environment } from '../environments/environment';
 
 import { AuthService } from './core/authentication/auth.service';
 import { LoginModule } from './shared/login.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    ContactsComponent],
+    ContactsComponent,
+    NavigationComponent,
+    FooterComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
