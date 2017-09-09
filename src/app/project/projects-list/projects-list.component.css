@@ -1,0 +1,25 @@
+h3 {
+    color: #fff;
+}
+
+h3:hover {
+    color: #E4C500;
+}
+
+section {
+    margin-top: 60px;
+}
+
+.project-img {
+    padding: 10px 0;
+}
+
+.project-img img {
+    width: 160px;
+}
+
+@media(min-width:720px) {
+    .project-img img {
+        width: 300px;
+    }
+}
