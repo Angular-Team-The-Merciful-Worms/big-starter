@@ -8,6 +8,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
+            <img class="page-scroll small-logo" src="../assets/logo-white.png" width="30">
             <a class="navbar-brand page-scroll" href="#first">Big Starter</a>
         </div>
 
@@ -15,9 +16,6 @@
             <ul class="nav navbar-nav">
                 <li><a [routerLink]="['/welcome']" class="page-scroll">Intro</a></li>
                 <li><a [routerLink]="['/projects']" class="page-scroll">Projects</a></li>
-                <!--<li><a class="page-scroll" href="#two">Guide</a></li> TODO-->
-                <!--<li><a class="page-scroll" href="#four">Feedback</a></li> TODO-->
-                <!--<li><a class="page-scroll" href="#last">Contact</a></li> TODO-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -47,7 +45,7 @@
             <div class="col-xs-6 col-sm-3 column">
                 <h4>About</h4>
                 <ul class="list-unstyled">
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a [routerLink]="['/contacts']">Contact Us</a></li>
                     <li><a href="#">Our Team</a></li>
                     <li><a href="#">Terms &amp; Conditions</a></li>
                 </ul>
