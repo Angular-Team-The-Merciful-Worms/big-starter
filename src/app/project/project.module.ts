@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
-import { CalculatePercentPipe } from "../shared/calculate-percent.pipe";
+import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
 
 @NgModule({
   imports: [
@@ -16,14 +16,13 @@ import { CalculatePercentPipe } from "../shared/calculate-percent.pipe";
       { path: 'category/:category', component: ProjectsListComponent },
       {
         path: 'projects/:id',
-        //canActivate: [ProjectGuardService],
         component: ProjectItemComponent
       }
     ])
   ],
   declarations: [
-    ProjectsListComponent, 
-    ProjectItemComponent, 
+    ProjectsListComponent,
+    ProjectItemComponent,
     ProjectCategoriesComponent,
     CalculatePercentPipe
   ],
