@@ -7,13 +7,17 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProjectModule } from './project/project.module';
 import { ContactsComponent } from './contacts/contacts.component';
 import { LoginModalComponent } from './shared/login-modal/login-modal.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ContactsComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    NavigationComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
