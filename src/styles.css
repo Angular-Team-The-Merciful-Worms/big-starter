@@ -52,6 +52,10 @@ p {
     margin-bottom: 20px;
 }
 
+section:last-of-type {
+    margin-bottom: 87px;
+}
+
 .wide-space {
     letter-spacing: 1.6px;
 }
