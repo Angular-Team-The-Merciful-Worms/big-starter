@@ -1,4 +1,3 @@
-import { ProjectService } from './project-service';
 import { NgModule } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -7,6 +6,9 @@ import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
 import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
+
+import { ProjectsFireService } from './projectsFire.service';
+import { ProjectService } from './project-service';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
     CalculatePercentPipe
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    ProjectsFireService
   ]
 })
 export class ProjectModule { }
