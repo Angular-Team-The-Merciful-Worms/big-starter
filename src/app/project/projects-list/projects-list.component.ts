@@ -35,7 +35,8 @@ export class ProjectsListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.projectsFireService.getProjects();
+    this.projectsFireService.getProjects()
+      .subscribe((response) => console.log(response));
 
     this.categoryFilter = this._route.snapshot.paramMap.get('category');
     this._projectService.getProjectsByCategory(this.categoryFilter)

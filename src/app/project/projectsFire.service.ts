@@ -9,10 +9,16 @@ export class ProjectsFireService {
     constructor(private db: AngularFireDatabase) { }
 
     getProjects() {
-        return this.db.list('/projects').subscribe((response) => console.log(response));
+        return this.db.list('/projects')
+            .subscribe((response) => console.log(response));
         // return this.db.object('/projects')
         //     .do(data => {
         //         console.log('All: ' + JSON.stringify(data)); // not casting
         //     });
+    }
+
+    getProjectsByCategory(category: string) {
+        return this.db.list('/projects')
+            .map(projs => projs.filter(p => p.category === category));
     }
 }
