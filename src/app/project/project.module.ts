@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
+import { ProjectsService } from './projects.service';
 
 @NgModule({
   imports: [
@@ -12,12 +13,11 @@ import { ProjectItemComponent } from './project-item/project-item.component';
       { path: 'projects', component: ProjectsListComponent },
       {
         path: 'projects/:id',
-        //canActivate: [ProjectGuardService],
         component: ProjectItemComponent
       }
     ])
   ],
   declarations: [ProjectsListComponent, ProjectItemComponent],
-  providers: []
+  providers: [ProjectsService]
 })
 export class ProjectModule { }
