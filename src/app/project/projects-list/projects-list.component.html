@@ -1,4 +1,4 @@
-<section calss="project-list">
+<section class="project-list">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -9,31 +9,62 @@
     <div class="container">
         <div class="row">
             <!-- TODO: replace with directive -->
-            <div class="col-lg-4 col-md-4">
+            <div class="col-md-4">
                 <div class="project-desc">
-                    <h3>Test project 1</h3>
+                    <h3><a [routerLink]="['/projects', 1]"> Test project 1 </a></h3>
+                    <span class="created-by">by The Bees</span>
                     <div class="project-img">
                         <img src="../../../assets/project1.jpg">
                     </div>
-                    <p class="text-faded">Test project one description. Short resume of what the project is about.</p>
+                    <p class="text-faded">Test project one description. Short resume of what the project is about. Added some more description to see what happens if text is longer. Text must be cropped when display is in projects list and not cropped when project is displayed
+                        in single project page. If this is fixed this sentence must not be sisplayed in projects list page. If this is not fixed all text will be displayed and the view becomes ugly.</p>
+                    <div class="project-details">
+                        <span class="badge-custom badge-votes">12 votes</span>
+                        <span class="badge-custom badge-funds">gained $500</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 30%"></div>
+                        </div>
+                        <span>funded 30%</span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-md-4">
                 <div class="project-desc">
-                    <h3>Test project 2</h3>
+                    <h3><a href="#">Test project 2</a></h3>
+                    <span class="created-by">by The Worms</span>
                     <div class="project-img">
-                        <img src="../../../assets/project2.jpg">
+                        <img src="../../../assets/no-image.jpg">
                     </div>
-                    <p class="text-faded">Test project two description. Short resume of what the project is about.</p>
+                    <p class="text-faded">Test project two description. Short resume of what the project is about. Added some more description...</p>
+                    <div class="project-details">
+                        <span class="badge-custom badge-votes">1 vote</span>
+                        <span class="badge-custom badge-funds">gained $40</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 90%"></div>
+                        </div>
+                        <span>funded 90%</span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-md-4">
                 <div class="project-desc">
-                    <h3>Test project 3</h3>
+                    <h3><a href="#">Test project 3</a></h3>
+                    <span class="created-by">by The Grassgoppers</span>
                     <div class="project-img">
-                        <img src="../../../assets/project3.jpg">
+                        <img src="../../../assets/project1.jpg">
                     </div>
-                    <p class="text-faded">Test project three description. Short resume of what the project is about.</p>
+                    <p class="text-faded">Test project three description. Short resume of what the project is about. Added some more description...</p>
+                    <div class="project-details">
+                        <span class="badge-custom badge-votes">233 votes</span>
+                        <span class="badge-custom badge-funds">gained $10,000</span>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 60%"></div>
+                        </div>
+                        <span>funded 60%</span>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
