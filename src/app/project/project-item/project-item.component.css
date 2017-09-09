@@ -1,4 +1,8 @@
 @import url('../projects-list/projects-list.component.css');
+.project-item {
+    margin-top: 60px;
+}
+
 .project-img {
     padding: 10px;
 }

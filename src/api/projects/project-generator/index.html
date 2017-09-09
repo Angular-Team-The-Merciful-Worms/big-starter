@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="project-form" type="post">
+        <fieldset>
+            <legend> Project Form </legend>
+
+            <div class="elements">
+                <label for="projectName">Project Name:</label>
+                <input type="text" value="Great project" name="projectName" />
+            </div>
+
+            <div class="elements">
+                <label for="authorName">Team Name:</label>
+                <input rtype="text" value="Author" name="authorName" />
+            </div>
+
+            <div class="elements">
+                <label for="description">Description:</label>
+                <input type="text" value="Short descriptoin of the project." name="description" />
+            </div>
+
+
+            <div class="elements">
+                <label for="pro"> Category:</label>
+                <select name="pro">
+                    <option value="Social">Social</option>
+                    <option value="Innovations">Innovations</option>
+                    <option value="Environment">Environment</option>
+                    <option value="Science"  selected="selected">Science</option>
+                    <option value="Sports">Sports</option>
+                    <option value="General">General</option>
+                </select>
+            </div>
+
+            <div class="elements">
+                <label for="category">Location:</label>
+                <input type="text" value="Sofia" name="location" />
+            </div>
+
+            <div class="elements">
+                <label for="Age">Date:</label>
+                <input type="date" value="2017-09-10" name="dateCreated" />
+            </div>
+
+            <div class="elements">
+                <label for="Age">Votes:</label>
+                <input type="number" value="12" name="votes" />
+            </div>
+
+            <div class="elements">
+                <label for="Age">Funds:</label>
+                <input type="number" value="500" name="accumulatedFunds" />
+            </div>
+
+            <div class="elements">
+                <label for="Age">Goal:</label>
+                <input type="number" value="1200" name="targetFunds" />
+            </div>
+
+            <div class="elements">
+                <label for="Age">Image:</label>
+                <input type="text" value="../../assets/project1.jpg" name="imageUrl" />
+            </div>
+
+            <div class="submit">
+                <input type="submit" id="btn" name="btn" class="btn" value="Submit" />
+            </div>
+
+        </fieldset>
+    </form>
+
+    <pre>[<pre class="result"></pre> ]</pre>
+
+    <script src="./script.js" type="text/javascript"></script>
+</body>
+
+</html>
