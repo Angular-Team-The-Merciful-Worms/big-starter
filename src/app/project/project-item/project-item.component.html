@@ -11,13 +11,13 @@
                     <p class="text-faded">{{ project.description }}</p>
                     <div class="project-details">
                         <div class="badges">
-                            <a *ngIf="auth.authenticated" class="badge-custom badge-votes">{{ project.votes }} votes</a>
+                            <a *ngIf="auth.authenticated" (click)="toggleVoteProject()" class="badge-custom badge-votes">{{ project.upvotedBy.length }} votes</a>
                             <a *ngIf="!auth.authenticated" data-toggle="modal" (click)="login.openLoginModal()" class="badge-custom badge-votes">{{ project.votes }} votes</a>                            
                             
                             <span>Vote for project!</span>
                         </div>
                         <div class="badges">
-                            <a *ngIf="auth.authenticated" class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
+                            <a *ngIf="auth.authenticated"  class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
                             <a *ngIf="!auth.authenticated" data-toggle="modal" (click)="login.openLoginModal()"  class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
                             
                             <span>Support with donation!</span>

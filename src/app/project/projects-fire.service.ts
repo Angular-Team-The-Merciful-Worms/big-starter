@@ -25,10 +25,7 @@ export class ProjectsFireService {
     }
 
     updateProjectByUid(uid: string, obj: IProject) {
-        return this.db.list('/projects').update(uid, obj)
-            .catch((err: any) => {
-                console.log(err); // again, customize me please
-            });
+        return this.db.list('/projects').update(uid, obj) as Promise<void>;
     }
 
     private mapProject(project) {

@@ -17,6 +17,9 @@ export class ProjectItemComponent implements OnInit {
   errorMessage: string;
   project: IProject;
   user: User;
+  votedFor = false;
+  indexVotedfor: number;
+
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -30,6 +33,19 @@ export class ProjectItemComponent implements OnInit {
     this.getProject(id);
   }
 
+  toggleVoteProject() {
+    if (this.votedFor) {
+      // const index = this.project.upvotedBy(user.$key)
+      // this.project.upvotedBy.
+      console.log('In');
+    } else {
+      console.log('not in array');
+    }
+    // this._projectsFireService.updateProjectByUid(this.user.$key, this.project)
+    //   .then(_ => console.log('success'))
+    //   .catch(error => console.log(error));
+  }
+  // 2JYOqqXO8yOG1K7cTgIb8nmegmf1
   getProject(id: number) {
     const uid = id.toString();
     this._projectsFireService.getProjectByUid(uid)
@@ -38,7 +54,9 @@ export class ProjectItemComponent implements OnInit {
         this.auth.currentUserData()
           .subscribe(user => {
             this.user = user;
-            console.log(this.user);
+            this.indexVotedfor = this.project.upvotedBy.indexOf(this.user.$key);
+            this.votedFor = (this.indexVotedfor > -1) ? true : false;
+            // console.log(this.user);
           });
       });
   }
