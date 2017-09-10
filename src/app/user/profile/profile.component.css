@@ -19,3 +19,7 @@ h1{
 .personal-info h3{
     margin-bottom: 1em;
 }
+
+.error{
+    color: red;
+}
