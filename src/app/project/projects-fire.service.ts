@@ -27,6 +27,16 @@ export class ProjectsFireService {
             .catch(this.handleError) as Observable<IProject[]>;
     }
 
+    // getProjectsByCategory(category: string): Observable<IProject[]> {
+    //     return this.db.list('/projects', {
+    //         query: {
+    //             orderByChild: 'votes',
+    //             equalTo: category
+    //         }
+    //     })
+    //     .catch(this.handleError) as Observable<IProject[]>;
+    // }
+
     getProjectsByCategory(category: string): Observable<IProject[]> {
         return this.getProjects()
             .map(projs => projs.filter(p => p.category === category)) as Observable<IProject[]>;

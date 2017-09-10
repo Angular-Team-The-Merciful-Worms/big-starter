@@ -10,6 +10,7 @@ import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
 
 import { ProjectsFireService } from './projects-fire.service';
 import { ProjectService } from './projects-local.service';
+import { UserProjectsComponent } from './user-projects/user-projects.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ProjectService } from './projects-local.service';
     RouterModule.forChild([
       { path: 'projects', component: ProjectCategoriesComponent },
       { path: 'category/:category', component: ProjectsListComponent },
+      { path: 'user/:id', component: UserProjectsComponent },
       {
         path: 'projects/:id',
         component: ProjectItemComponent
@@ -28,7 +30,8 @@ import { ProjectService } from './projects-local.service';
     ProjectItemComponent,
     ProjectCategoriesComponent,
     CalculatePercentPipe,
-    CutStringPipe
+    CutStringPipe,
+    UserProjectsComponent
   ],
   providers: [
     ProjectService,
