@@ -1,0 +1,19 @@
+<section class="user-projects">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="margin-top-0 text-primary">{{ user | titlecase }}'s private space</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="user-header">
+            <h3>Posted projects </h3>
+            <span class="text-muted"> Search for project: </span>
+            <input type="text" name="filter-name" placeholder="project name">
+        </div>
+
+        <app-project-list-items [projects]="userProjects" [number]="1"></app-project-list-items>
+
+    </div>
+</section>

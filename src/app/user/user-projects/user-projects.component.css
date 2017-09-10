@@ -1,4 +1,4 @@
-@import url('../projects-list/projects-list.component.css');
+@import url('../../project/projects-list/projects-list.component.css');
 .user-projects {
     margin-top: 60px;
 }
