@@ -7,8 +7,8 @@ import { ProjectItemComponent } from './project-item/project-item.component';
 import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
 import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
 
-import { ProjectsFireService } from './projectsFire.service';
-import { ProjectService } from './project-service';
+import { ProjectsFireService } from './projects-fire.service';
+import { ProjectService } from './projects-local.service';
 
 @NgModule({
   imports: [
