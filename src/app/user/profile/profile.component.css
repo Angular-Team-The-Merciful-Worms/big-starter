@@ -23,3 +23,12 @@ h1{
 .error{
     color: red;
 }
+
+.custom-btn{
+    border: 1px solid white;
+    margin-top: 5px;
+}
+
+label{
+    font-size: 1.1em;
+}

@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth.service';
+import { UploadService } from '../../core/upload.service';
 import { User } from '../user';
+import { Upload } from '../../core/upload';
 
 @Component({
   selector: 'app-profile',
@@ -11,9 +13,19 @@ import { User } from '../user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  defaultAvatar = 'http://clients.timhartmann.net/brucegg/dummies/fpo_avatar.png';
   userForm: FormGroup;
   errorMessage: string;
   user: User;
+  updated = false;
+  resetPass = false;
+  limitExceedMsg = 'Password reset already requested. Limit Exceeded. Try again later!';
+  passResetMsg = 'Password reset requested. Check your email for instructions.';
+  passmg: string;
+
+  selectedFiles: FileList;
+  currentUpload: Upload;
 
   formErrors = {
     'email': '',
@@ -45,17 +57,25 @@ export class ProfileComponent implements OnInit {
     },
     'balance': {
       'required': 'Balance is required.',
-      'min': 'Balance should be a positive number',
+      'min': 'Balance should be a non negative number',
     },
   };
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
-
-    this.user = { email: '', password: '', name: '', firstname: '', lastname: '', balance: 0 };
+  constructor(private authService: AuthService, private fb: FormBuilder, private uploadService: UploadService) {
+    this.user = {
+      email: '',
+      password: '',
+      name: '',
+      firstname: '',
+      lastname: '',
+      balance: 0,
+      picture: { url: this.defaultAvatar },
+    };
   }
 
   ngOnInit(): void {
     this.getUserData();
+    this.getUserProfilePicture();
     this.buildForm();
   }
 
@@ -90,25 +110,45 @@ export class ProfileComponent implements OnInit {
     this.onValueChanged(); // reset validation messages
   }
   updateData(): void {
-    console.log('update');
     const user = {
       email: this.userForm.value['email'],
       password: this.userForm.value['password'],
       firstname: this.userForm.value['firstname'],
       lastname: this.userForm.value['lastname'],
+      name: this.userForm.value['name'],
       balance: this.userForm.value['balance'],
     };
 
     this.authService.updateUserData(user);
+    this.updated = true;
+
+    setTimeout(() => {
+      this.updated = false;
+    }, 3000);
   }
 
   changePassword(): void {
-    console.log('pass');
+    this.authService.resetPassword(this.user.email)
+      .then(() => {
+        this.passmg = this.passResetMsg;
+        this.resetPass = true;
+      })
+      .catch(() => {
+        this.passmg = this.limitExceedMsg;
+        this.resetPass = true;
+      });
+
+    setTimeout(() => {
+      this.resetPass = false;
+      this.passmg = '';
+    }, 3000);
   }
 
   onValueChanged(data?: any) {
     if (!this.userForm) { return; }
     const form = this.userForm;
+    this.updated = false;
+
     for (const field in this.formErrors) {
       if (Object.prototype.hasOwnProperty.call(this.formErrors, field)) {
         // clear previous error message (if any)
@@ -126,9 +166,47 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+    this.uploadProfilePic();
+  }
+
+  uploadProfilePic() {
+    if (this.user.picture.url !== this.defaultAvatar) {
+      this.uploadService.deleteProfilePicture(this.user.picture);
+    }
+
+    const file = this.selectedFiles.item(0);
+    this.currentUpload = new Upload(file);
+    this.uploadService
+      .uploadProfilePicture(this.currentUpload);
+  }
+
+  deleteProfilePicture() {
+    if (this.user.picture.url !== this.defaultAvatar) {
+      this.uploadService.deleteProfilePicture(this.user.picture);
+    }
+
+    this.user.picture.url = this.defaultAvatar;
+  }
+
   getUserData() {
     this.authService.currentUserData()
-      .subscribe(u => this.user = u,
+      .subscribe(u => {
+        const pic = this.user.picture;
+        this.user = u;
+        this.user.picture = pic;
+      },
       error => this.errorMessage = <any>error);
+  }
+
+  getUserProfilePicture() {
+    this.uploadService.getProfilePicture()
+      .subscribe(p => {
+        const keys = Object.keys(p)[0];
+        if (p[keys]) {
+          this.user.picture = p[keys];
+        }
+      });
   }
 }
