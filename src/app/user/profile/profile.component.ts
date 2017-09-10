@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth.service';
+import { UploadService } from '../../core/upload.service';
 import { User } from '../user';
+import { Upload } from '../../core/upload';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +21,10 @@ export class ProfileComponent implements OnInit {
   limitExceedMsg = 'Password reset already requested. Limit Exceeded. Try again later!';
   passResetMsg = 'Password reset requested. Check your email for instructions.';
   passmg: string;
+
+  selectedFiles: FileList;
+  currentUpload: Upload;
+
   formErrors = {
     'email': '',
     'firstname': '',
@@ -53,13 +59,21 @@ export class ProfileComponent implements OnInit {
     },
   };
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
-
-    this.user = { email: '', password: '', name: '', firstname: '', lastname: '', balance: 0 };
+  constructor(private authService: AuthService, private fb: FormBuilder, private uploadService: UploadService) {
+    this.user = {
+      email: '',
+      password: '',
+      name: '',
+      firstname: '',
+      lastname: '',
+      balance: 0,
+      picture: { url: '' }
+    };
   }
 
   ngOnInit(): void {
     this.getUserData();
+    this.getUserProfilePicture();
     this.buildForm();
   }
 
@@ -104,7 +118,7 @@ export class ProfileComponent implements OnInit {
 
     this.authService.updateUserData(user);
     this.updated = true;
-    
+
     setTimeout(() => {
       this.updated = false;
     }, 3000);
@@ -149,9 +163,35 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+    this.uploadProfilePic();
+  }
+
+  uploadProfilePic() {
+    const file = this.selectedFiles.item(0);
+    this.currentUpload = new Upload(file);
+    this.uploadService
+      .uploadProfilePicture(this.currentUpload);
+  }
+
   getUserData() {
     this.authService.currentUserData()
-      .subscribe(u => this.user = u,
+      .subscribe(u => {
+        const pic = this.user.picture;
+        this.user = u;
+        this.user.picture = pic;
+      },
       error => this.errorMessage = <any>error);
+  }
+
+  getUserProfilePicture() {
+    this.uploadService.getProfilePicture()
+      .subscribe(p => {
+        const keys = Object.keys(p)[0];
+        if (p[keys]) {
+          this.user.picture = p[keys];
+        }
+      });
   }
 }

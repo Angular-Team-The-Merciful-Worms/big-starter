@@ -1,3 +1,5 @@
+import { Upload } from '../core/upload';
+
 export interface User {
     email: string;
     password: string;
@@ -5,4 +7,5 @@ export interface User {
     firstname?: string;
     lastname?: string;
     balance?: number;
+    picture?: Upload;
 }
