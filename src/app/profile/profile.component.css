@@ -1,0 +1,8 @@
+.profile{
+    margin-top: 60px;
+}
+.profile-box {
+    background-color: #444;
+    box-shadow: 2px 2px 3px #000;
+    padding-bottom: 60px;
+}

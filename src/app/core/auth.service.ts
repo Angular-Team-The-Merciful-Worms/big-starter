@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
-import { User } from './user';
+import { User } from '../profile/user';
 
 @Injectable()
 export class AuthService {
@@ -145,7 +145,6 @@ export class AuthService {
 
     this.db.object(path)
       .subscribe((res) => {
-        console.log(res);
         this.user = res;
       });
   }

@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProjectModule } from './project/project.module';
 import { ContactsComponent } from './contacts/contacts.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
@@ -21,6 +22,7 @@ import { CoreModule } from './core/core.module';
   declarations: [
     AppComponent,
     WelcomeComponent,
+    ProfileComponent,
     ContactsComponent],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { CoreModule } from './core/core.module';
     AngularFireAuthModule,
     CoreModule,
     RouterModule.forRoot([
+      { path: 'profile', component: ProfileComponent },
       { path: 'welcome', component: WelcomeComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
