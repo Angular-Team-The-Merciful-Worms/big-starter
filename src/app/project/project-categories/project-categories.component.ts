@@ -29,27 +29,31 @@ export class ProjectCategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.getProjects();
 
-    this.individualProjects = this.projects
-    .filter(x => x.category.toLowerCase() === "individual")
-    .splice(0, this.projectsToDisplay);
 
-    this.groupProjects = this.projects
-    .filter(x => x.category.toLowerCase() === "group")
-    .splice(0, this.projectsToDisplay);
-
-    this.communityProjects = this.projects
-    .filter(x => x.category.toLowerCase() === "community")
-    .splice(0, this.projectsToDisplay);
-
-    console.log(this.projects);
-    console.log(this.individualProjects);
-    console.log(this.groupProjects);
-    console.log(this.communityProjects);
   }
 
   getProjects() {
     this.projectsFireService.getProjects()
-      .subscribe(projects => this.projects = projects,
+      .subscribe(projects => {
+        this.projects = projects;
+
+        this.individualProjects = this.projects
+          .filter(x => x.category.toLowerCase() === 'individual')
+          .splice(0, this.projectsToDisplay);
+
+        this.groupProjects = this.projects
+          .filter(x => x.category.toLowerCase() === 'group')
+          .splice(0, this.projectsToDisplay);
+
+        this.communityProjects = this.projects
+          .filter(x => x.category.toLowerCase() === 'community')
+          .splice(0, this.projectsToDisplay);
+
+        // console.log(this.projects);
+        // console.log(this.individualProjects);
+        // console.log(this.groupProjects);
+        // console.log(this.communityProjects);
+      },
       error => this.errorMessage = <any>error);
   }
 }
