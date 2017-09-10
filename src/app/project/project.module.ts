@@ -9,6 +9,7 @@ import { ProjectCategoriesComponent } from './project-categories/project-categor
 
 import { ProjectsFireService } from './projects-fire.service';
 import { ProjectService } from './projects-local.service';
+import { ProjectListItemsComponent } from './project-list-items/project-list-items.component';
 
 @NgModule({
   imports: [
@@ -26,10 +27,14 @@ import { ProjectService } from './projects-local.service';
     ProjectsListComponent,
     ProjectItemComponent,
     ProjectCategoriesComponent,
+    ProjectListItemsComponent,
   ],
   providers: [
     ProjectService,
     ProjectsFireService
+  ],
+  exports: [
+    ProjectsListComponent
   ]
 })
 export class ProjectModule { }
