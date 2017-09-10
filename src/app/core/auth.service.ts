@@ -11,24 +11,27 @@ import { User } from '../user/user';
 @Injectable()
 export class AuthService {
 
+  uid: string;
   authState: any = null;
   user: User;
 
   constructor(private afAuth: AngularFireAuth,
 
-    private db: AngularFireDatabase,
-    private router: Router) {
+    private db: AngularFireDatabase, private router: Router) {
+
     this.afAuth.authState.subscribe((auth) => {
-      this.authState = auth;
-      this.currentUserData().subscribe(u => {
-        this.user = u;
-      });
+      if (!!auth) {
+        this.authState = auth;
+        this.currentUserData().subscribe(u => {
+          this.user = u;
+        });
+      }
     });
   }
 
   // Returns true if user is logged in
   get authenticated(): boolean {
-    return !!this.authState;
+    return !!this.authState && !!this.authState.uid;
   }
 
   // Returns current user data
@@ -43,7 +46,7 @@ export class AuthService {
 
   // Returns current user UID
   get currentUserId(): string {
-    return this.authenticated ? this.authState.uid : '';
+    return this.authenticated ? !!this.authState.uid ? this.authState.uid : this.uid : '';
   }
 
   // Returns current user display name or Guest
@@ -105,6 +108,7 @@ export class AuthService {
 
   //// Sign Out ////
   signOut(): void {
+    this.authState = null;
     this.afAuth.auth.signOut();
     this.router.navigate(['/']);
   }

@@ -13,6 +13,9 @@
                                     <h6>Upload a different photo...</h6>
                                     <input type="file" (change)="detectFiles($event)" accept="image/*" class="text-center center-block well well-sm">
                                 </div>
+                                <div class="text-center">
+                                    <button (click)="this.deleteProfilePicture()" class="btn btn-default custom-btn" type="submit">Delete profile picture</button>
+                                </div>
                             </div>
                             <!-- edit form column -->
                             <form [formGroup]="userForm" (ngSubmit)="this.updateData()">

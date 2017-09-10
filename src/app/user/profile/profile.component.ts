@@ -115,6 +115,7 @@ export class ProfileComponent implements OnInit {
       password: this.userForm.value['password'],
       firstname: this.userForm.value['firstname'],
       lastname: this.userForm.value['lastname'],
+      name: this.userForm.value['name'],
       balance: this.userForm.value['balance'],
     };
 
@@ -171,7 +172,6 @@ export class ProfileComponent implements OnInit {
   }
 
   uploadProfilePic() {
-
     if (this.user.picture.url !== this.defaultAvatar) {
       this.uploadService.deleteProfilePicture(this.user.picture);
     }
@@ -180,6 +180,14 @@ export class ProfileComponent implements OnInit {
     this.currentUpload = new Upload(file);
     this.uploadService
       .uploadProfilePicture(this.currentUpload);
+  }
+
+  deleteProfilePicture() {
+    if (this.user.picture.url !== this.defaultAvatar) {
+      this.uploadService.deleteProfilePicture(this.user.picture);
+    }
+
+    this.user.picture.url = this.defaultAvatar;
   }
 
   getUserData() {
