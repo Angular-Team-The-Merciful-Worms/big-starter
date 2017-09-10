@@ -3,7 +3,6 @@ import { IProject } from './../project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ProjectService } from './../projects-local.service';
 import { ProjectsFireService } from './../projects-fire.service';
 
 @Component({
@@ -33,16 +32,14 @@ export class ProjectsListComponent implements OnInit {
     private _router: Router,
     private projectsFireService: ProjectsFireService) { }
 
-  ngOnInit(): void {
-    this.categoryFilter = this._route.snapshot.paramMap.get('category');
-
-    this.getProjects(this.categoryFilter);
-
-  }
-
   getProjects(category: string) {
     this.projectsFireService.getProjectsByCategory(this.categoryFilter)
       .subscribe(projects => this.projects = projects,
       error => this.errorMessage = <any>error);
+  }
+
+  ngOnInit(): void {
+    this.categoryFilter = this._route.snapshot.paramMap.get('category');
+      this.getProjects(this.categoryFilter);
   }
 }
