@@ -8,14 +8,14 @@
     </div>
     <div class="container">
         <div class="row">
-            <div *ngFor='let project of projects' class="col-md-4">
+            <div *ngFor='let project of projects' class="col-md-12">
                 <div class="project-desc">
                     <h3><a [routerLink]="['/projects', project.projectId]">{{ project.projectName }}</a></h3>
                     <span class="created-by">by {{ project.authorName }}</span>
                     <div class="project-img">
                         <img [src]='project.imageUrl' [title]='project.projectName'>
                     </div>
-                    <p class="text-faded">{{ project.description }}</p>
+                    <p class="text-faded">{{ project.description | cutString:10 }}</p>
                     <div class="project-details">
                         <span class="badge-custom badge-votes">{{ project.votes }} votes</span>
                         <span class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</span>
