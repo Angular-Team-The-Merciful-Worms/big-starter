@@ -29,6 +29,14 @@
 
 input {
     color: #222;
-    padding: 3px;
+    padding: 5px;
     font-size: 1.2em;
+}
+
+.create-btn {
+    display: inline-block;
+    margin-left: 10%;
+    padding: 8px 20px;
+    font-size: 1.2em;
+    border: 2px outset grey;
 }
