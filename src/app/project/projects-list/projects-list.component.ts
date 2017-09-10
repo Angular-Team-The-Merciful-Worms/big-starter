@@ -10,6 +10,7 @@ import { ProjectsFireService } from './../projects-fire.service';
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.css']
 })
+
 export class ProjectsListComponent implements OnInit {
   projects: IProject[] = [];
   filteredProjects: IProject[];

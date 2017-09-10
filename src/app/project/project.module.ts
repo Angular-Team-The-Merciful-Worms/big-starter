@@ -1,3 +1,4 @@
+import { CutStringPipe } from './../shared/cut-string.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -26,7 +27,8 @@ import { ProjectService } from './projects-local.service';
     ProjectsListComponent,
     ProjectItemComponent,
     ProjectCategoriesComponent,
-    CalculatePercentPipe
+    CalculatePercentPipe,
+    CutStringPipe
   ],
   providers: [
     ProjectService,
