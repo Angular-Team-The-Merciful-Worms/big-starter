@@ -1,7 +1,8 @@
-import { ProjectService } from './../project-service';
 import { IProject } from './../project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { ProjectsFireService } from './../projectsFire.service';
 
 @Component({
   selector: 'app-project-item',
@@ -14,18 +15,19 @@ export class ProjectItemComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
-    private _projectService: ProjectService) {
+    private _projectsFireService: ProjectsFireService) {
   }
 
   ngOnInit() {
-    const id = +this._route.snapshot.paramMap.get('id');
-    console.log(id);
+    const id = +this._route.snapshot.paramMap.get('id') - 1;
     this.getProject(id);
   }
 
   getProject(id: number) {
-    this._projectService.getProject(id).subscribe(
-      project => this.project = project,
-      error => this.errorMessage = <any>error);
+    const uid = id.toString();
+    this._projectsFireService.getProjectByUid(uid)
+      .subscribe(project => {
+        this.project = project;
+      });
   }
 }

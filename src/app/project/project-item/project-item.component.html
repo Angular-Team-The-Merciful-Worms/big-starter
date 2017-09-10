@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="project-desc">
+                <div *ngIf="project" class="project-desc">
                     <h3>{{ project.projectName }}</h3>
                     <span class="created-by">Created by <strong>{{ project.authorName }}</strong></span>
                     <div class="project-img">
