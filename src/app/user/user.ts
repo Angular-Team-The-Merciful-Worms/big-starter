@@ -8,4 +8,5 @@ export interface User {
     lastname?: string;
     balance?: number;
     picture?: Upload;
+    $key?: string;
 }
