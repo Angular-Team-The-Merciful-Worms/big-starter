@@ -30,23 +30,21 @@ export class ProjectItemComponent implements OnInit {
 
   ngOnInit() {
     const id = +this._route.snapshot.paramMap.get('id') - 1;
-    this.getProject(id);
+    this.initialize(id);
   }
 
   toggleVoteProject() {
     if (this.votedFor) {
-      // const index = this.project.upvotedBy(user.$key)
-      // this.project.upvotedBy.
-      console.log('In');
+      this.project.upvotedBy.splice(this.indexVotedfor, 1);
     } else {
-      console.log('not in array');
+      this.project.upvotedBy.push(this.user.$key);
     }
-    // this._projectsFireService.updateProjectByUid(this.user.$key, this.project)
-    //   .then(_ => console.log('success'))
-    //   .catch(error => console.log(error));
+    const uid = (this.project.projectId - 1).toString();
+    this._projectsFireService.updateProjectByUid(uid, this.project)
+      .then(_ => console.log('success'))
+      .catch(error => console.log(error));
   }
-  // 2JYOqqXO8yOG1K7cTgIb8nmegmf1
-  getProject(id: number) {
+  initialize(id: number) {
     const uid = id.toString();
     this._projectsFireService.getProjectByUid(uid)
       .subscribe(project => {
@@ -56,7 +54,6 @@ export class ProjectItemComponent implements OnInit {
             this.user = user;
             this.indexVotedfor = this.project.upvotedBy.indexOf(this.user.$key);
             this.votedFor = (this.indexVotedfor > -1) ? true : false;
-            // console.log(this.user);
           });
       });
   }
