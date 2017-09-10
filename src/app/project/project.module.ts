@@ -34,7 +34,7 @@ import { ProjectListItemsComponent } from './project-list-items/project-list-ite
     ProjectsFireService
   ],
   exports: [
-    ProjectsListComponent
+    ProjectListItemsComponent
   ]
 })
 export class ProjectModule { }

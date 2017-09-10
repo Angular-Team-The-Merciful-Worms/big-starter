@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { IProject } from "../../project/project";
+import { User } from "../user";
 
 import { ProjectsFireService } from './../../project/projects-fire.service';
 
@@ -15,6 +16,7 @@ export class UserProjectsComponent implements OnInit {
   userProjects: IProject[];
   gainedPercent: number = 0;
   errorMessage: string;
+  userId: string;
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -22,19 +24,25 @@ export class UserProjectsComponent implements OnInit {
     public auth: AuthService) { }
 
     ngOnInit(): void {
-      const userName = this._route.snapshot.paramMap.get('authorName');
-      this.getProjects(userName);
+      this.getUser();
+      this.getProjects(this.userId);
     }
   
-    getProjects(userName: string) {
+    getUser() {
+      this.userId = this.auth.currentUserId;
+      console.log(this.userId);
+    }
+    getProjects(id: string) {
       this.projectsFireService.getProjects()
         .subscribe(projects => { 
           this.userProjects = projects
-          .filter(x => x.authorName.toLowerCase() === userName);
+          .filter(x => x.authorId === id);
          },
         error => this.errorMessage = <any>error);
     }
 }
+
+// vAsRmvQAoWg9VtqYhzis1c5Udcp2
 
 
 

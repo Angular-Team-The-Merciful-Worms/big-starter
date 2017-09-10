@@ -1,3 +1,4 @@
+import { ProjectModule } from './../project/project.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,11 +10,12 @@ import { UserProjectsComponent } from "./user-projects/user-projects.component";
 
 @NgModule({
   imports: [
+    ProjectModule,
     SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-      { path: 'user/projects/:id', component: UserProjectsComponent, canActivate: [AuthGuard] },
+      { path: 'myprojects', component: UserProjectsComponent, canActivate: [AuthGuard] },
     ]),
   ],
   declarations: [

@@ -4,7 +4,7 @@
             <h1 class="main-header">{{ pageTitle }}</h1>
             <h4>A small place for big ideas</h4>
             <hr>
-            <a *ngIf="auth.authenticated" [routerLink]="['/user/projects', auth.currentUserId]" id="subscribe" class="btn btn-primary btn-xl">My projects</a> &nbsp;
+            <a *ngIf="auth.authenticated" [routerLink]="['/myprojects']" id="subscribe" class="btn btn-primary btn-xl">My projects</a> &nbsp;
             <a *ngIf="!auth.authenticated" data-toggle="modal" title="Register" (click)="login.openLoginModal()" class="btn btn-primary btn-xl page-scroll">Get Started</a>
         </div>
     </div>

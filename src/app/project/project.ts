@@ -1,4 +1,5 @@
 export interface IProject {
+    authorId?: string;
     projectId: number;
     projectName: string;
     authorName: string;
