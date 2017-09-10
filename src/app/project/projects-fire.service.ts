@@ -24,15 +24,24 @@ export class ProjectsFireService {
             .catch(this.handleError) as Observable<IProject[]>;
     }
 
+    updateProjectByUid(uid: string, obj: IProject) {
+        return this.db.list('/projects').update(uid, obj)
+            .catch((err: any) => {
+                console.log(err); // again, customize me please
+            });
+    }
+
     private mapProject(project) {
         const newProject = project;
         newProject.projectId = +project.$key + 1;
-        if (project.upvotedBy) {
-            newProject.votes = project.upvotedBy.length;
+        if (!project.upvotedBy) {
+            // newProject.votes = project.upvotedBy.length;
+            newProject.upvotedBy = [];
             // console.log(project.upvotedBy);
-        } else {
-            newProject.votes = 0;
         }
+
+        // console.log(newProject);
+        newProject.votes = newProject.upvotedBy.length;
         return newProject;
     }
 

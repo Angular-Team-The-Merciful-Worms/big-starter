@@ -1,3 +1,4 @@
+import { User } from './../../user/user';
 import { IProject } from './../project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -5,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsFireService } from './../projects-fire.service';
 import { AuthService } from '../../core/auth.service';
 import { LoginService } from './../../shared/navigation/login-service/login.service';
+
 
 @Component({
   selector: 'app-project-item',
@@ -14,6 +16,7 @@ import { LoginService } from './../../shared/navigation/login-service/login.serv
 export class ProjectItemComponent implements OnInit {
   errorMessage: string;
   project: IProject;
+  user: User;
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -25,7 +28,6 @@ export class ProjectItemComponent implements OnInit {
   ngOnInit() {
     const id = +this._route.snapshot.paramMap.get('id') - 1;
     this.getProject(id);
-    console.log(this.auth);
   }
 
   getProject(id: number) {
@@ -33,29 +35,15 @@ export class ProjectItemComponent implements OnInit {
     this._projectsFireService.getProjectByUid(uid)
       .subscribe(project => {
         this.project = project;
+        this.auth.currentUserData()
+          .subscribe(user => {
+            this.user = user;
+            console.log(this.user);
+          });
       });
   }
 
 
 
-    //   ) { }
 
-    // ngOnInit(): void {
-    //   this.getUser();
-    // }
-  
-    // getUser() {
-    //   this.auth.currentUserData()
-    //   .subscribe(currentUser => {
-    //     this.getProjects(currentUser.$key);
-    //   });
-    // }
-    // getProjects(id: string) {
-    //   this.projectsFireService.getProjects()
-    //     .subscribe(projects => { 
-    //       this.userProjects = projects
-    //       .filter(x => x.authorId === id);
-    //      },
-    //     error => this.errorMessage = <any>error);
-    // }
 }
