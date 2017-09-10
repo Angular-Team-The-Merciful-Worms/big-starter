@@ -21,7 +21,7 @@
                         <span class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</span>
                         <div class="progress">
                             <!-- TODO: calculate percent here -->
-                            <div class="progress-bar bg-info" role="progressbar" [style.width.%]='60'></div>
+                            <div class="progress-bar bg-info" role="progressbar" [style.width.%]='project.accumulatedFunds / project.targetFunds * 100'></div>
                         </div>
                         <span id="percent-value">funded {{ project.accumulatedFunds | calculatePercent:project.targetFunds }}%</span>
                     </div>
