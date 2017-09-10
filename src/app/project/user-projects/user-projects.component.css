@@ -1,0 +1,31 @@
+@import url('../projects-list/projects-list.component.css');
+
+.user-projects {
+    margin-top: 60px;
+}
+
+.category-header {
+    background-color: #666;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 3px #000;
+}
+
+.category-header a {
+    color: #fff;
+}
+
+.category-header a:hover {
+    color: #F4EA2F;
+}
+
+.project-img {
+    height: 100px;
+    width: 240px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.text-muted {
+    padding-left: 20px;
+    color: #bbb;
+}
