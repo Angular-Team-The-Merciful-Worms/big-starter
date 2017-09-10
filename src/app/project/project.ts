@@ -8,6 +8,7 @@ export interface IProject {
     location: number;
     dateCreated: number;
     votes: string;
+    upvotedBy?: string[];
     accumulatedFunds: number;
     targetFunds: number;
     imageUrl: string;
