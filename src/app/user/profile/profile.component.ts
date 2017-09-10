@@ -14,7 +14,11 @@ export class ProfileComponent implements OnInit {
   userForm: FormGroup;
   errorMessage: string;
   user: User;
-
+  updated = false;
+  resetPass = false;
+  limitExceedMsg = 'Password reset already requested. Limit Exceeded. Try again later!';
+  passResetMsg = 'Password reset requested. Check your email for instructions.';
+  passmg: string;
   formErrors = {
     'email': '',
     'firstname': '',
@@ -45,7 +49,7 @@ export class ProfileComponent implements OnInit {
     },
     'balance': {
       'required': 'Balance is required.',
-      'min': 'Balance should be a positive number',
+      'min': 'Balance should be a non negative number',
     },
   };
 
@@ -90,7 +94,6 @@ export class ProfileComponent implements OnInit {
     this.onValueChanged(); // reset validation messages
   }
   updateData(): void {
-    console.log('update');
     const user = {
       email: this.userForm.value['email'],
       password: this.userForm.value['password'],
@@ -100,15 +103,35 @@ export class ProfileComponent implements OnInit {
     };
 
     this.authService.updateUserData(user);
+    this.updated = true;
+    
+    setTimeout(() => {
+      this.updated = false;
+    }, 3000);
   }
 
   changePassword(): void {
-    console.log('pass');
+    this.authService.resetPassword(this.user.email)
+      .then(() => {
+        this.passmg = this.passResetMsg;
+        this.resetPass = true;
+      })
+      .catch(() => {
+        this.passmg = this.limitExceedMsg;
+        this.resetPass = true;
+      });
+
+    setTimeout(() => {
+      this.resetPass = false;
+      this.passmg = '';
+    }, 3000);
   }
 
   onValueChanged(data?: any) {
     if (!this.userForm) { return; }
     const form = this.userForm;
+    this.updated = false;
+
     for (const field in this.formErrors) {
       if (Object.prototype.hasOwnProperty.call(this.formErrors, field)) {
         // clear previous error message (if any)
