@@ -12,8 +12,18 @@ export class ProjectsFireService {
 
     constructor(private db: AngularFireDatabase) { }
 
+    getProjectByUid(uid: string) {
+        return this.db.object('/projectsMany/' + uid);
+    }
+
+    // unclear if a better way to extract id?
     getProjects(): Observable<IProject[]> {
-        return this.db.list('/projects')
+        return this.db.list('/projectsMany')
+            .map(innerArray => innerArray.map(project => {
+                const newProject = project;
+                newProject.projectId = project.$key;
+                return newProject;
+            }))
             .catch(this.handleError) as Observable<IProject[]>;
     }
 
