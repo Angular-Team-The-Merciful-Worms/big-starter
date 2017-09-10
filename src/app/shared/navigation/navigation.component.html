@@ -18,16 +18,16 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="!auth.authenticated">
-                    <a class="page-scroll" data-toggle="modal" title="Login" (click)="openLoginModal()">Login</a>
+                    <a class="page-scroll" title="Login" (click)="login.openLoginModal()">Login</a>
                 </li>
                 <li *ngIf="!auth.authenticated">
-                    <a class="page-scroll" data-toggle="modal" title="Register" (click)="openRegisterModal()">Register</a>
+                    <a class="page-scroll" title="Register" (click)="login.openRegisterModal()">Register</a>
                 </li>
                 <li *ngIf="auth.authenticated">
-                    <a class="page-scroll" data-toggle="modal" title="Profile">{{auth.currentUserDisplayName}}</a>
+                    <a [routerLink]="['/profile']" class="page-scroll" title="Profile">{{!!this.auth.user ? this.auth.user.name : ''}}</a>
                 </li>
                 <li *ngIf="auth.authenticated">
-                    <a class="page-scroll" data-toggle="modal" title="Profile" (click)="auth.signOut()">Log out</a>
+                    <a class="page-scroll" title="signOut" (click)="auth.signOut()">Log out</a>
                 </li>
             </ul>
         </div>
