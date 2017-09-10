@@ -8,6 +8,8 @@ import { RegisterFormComponent } from './navigation/register-form/register-form.
 import { UserLoginComponent } from './navigation/user-login/user-login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
+import { CutStringPipe } from "./cut-string.pipe";
+import { CalculatePercentPipe } from "./calculate-percent.pipe";
 
 @NgModule({
     imports: [
@@ -19,7 +21,10 @@ import { FooterComponent } from './footer/footer.component';
         FooterComponent,
         NavigationComponent,
         UserLoginComponent,
-        RegisterFormComponent],
+        RegisterFormComponent,
+        CalculatePercentPipe,
+        CutStringPipe
+    ],
     entryComponents: [
         UserLoginComponent,
         RegisterFormComponent,
@@ -27,6 +32,9 @@ import { FooterComponent } from './footer/footer.component';
     exports: [
         FooterComponent,
         NavigationComponent,
+        CalculatePercentPipe,
+        CutStringPipe,
+        CommonModule
     ],
     providers: [
         LoginService,

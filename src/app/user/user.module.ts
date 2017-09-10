@@ -1,5 +1,5 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuard } from '../core/auth.guard';
@@ -9,7 +9,7 @@ import { UserProjectsComponent } from "./user-projects/user-projects.component";
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
@@ -17,7 +17,8 @@ import { UserProjectsComponent } from "./user-projects/user-projects.component";
     ]),
   ],
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    UserProjectsComponent,
   ]
 })
 export class UserModule { }
