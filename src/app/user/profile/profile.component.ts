@@ -13,6 +13,8 @@ import { Upload } from '../../core/upload';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  defaultAvatar = 'http://clients.timhartmann.net/brucegg/dummies/fpo_avatar.png';
   userForm: FormGroup;
   errorMessage: string;
   user: User;
@@ -67,7 +69,7 @@ export class ProfileComponent implements OnInit {
       firstname: '',
       lastname: '',
       balance: 0,
-      picture: { url: '' }
+      picture: { url: this.defaultAvatar },
     };
   }
 
@@ -169,6 +171,11 @@ export class ProfileComponent implements OnInit {
   }
 
   uploadProfilePic() {
+
+    if (this.user.picture.url !== this.defaultAvatar) {
+      this.uploadService.deleteProfilePicture(this.user.picture);
+    }
+
     const file = this.selectedFiles.item(0);
     this.currentUpload = new Upload(file);
     this.uploadService

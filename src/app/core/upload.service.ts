@@ -13,14 +13,27 @@ export class UploadService {
     upload: FirebaseObjectObservable<Upload>;
     uploads: FirebaseListObservable<Upload[]>;
 
-    getProfilePicture() {
+    public getProfilePicture() {
         const path = this.basePath + this.authService.currentUserId + '/profilePicture/avatar';
         return this.getUpload(path);
     }
 
-    uploadProfilePicture(upload: Upload) {
+    public uploadProfilePicture(upload: Upload) {
         const path = this.basePath + this.authService.currentUserId + '/profilePicture/avatar';
         this.pushUpload(upload, path);
+    }
+
+    public deleteProfilePicture(upload: Upload) {
+        const path = this.basePath + this.authService.currentUserId + '/profilePicture/avatar';
+        this.deleteUpload(upload, path);
+    }
+
+    private deleteUpload(upload: Upload, path: string) {
+        this.deleteFileData(upload.$key, path)
+            .then(() => {
+                this.deleteFileStorage(upload.name, path);
+            })
+            .catch(error => console.log(error));
     }
 
     // Executes the file uploading to firebase https://firebase.google.com/docs/storage/web/upload-files
@@ -61,28 +74,20 @@ export class UploadService {
         return this.upload;
     }
 
-    private deleteUpload(upload: Upload) {
-        this.deleteFileData(upload.$key)
-            .then(() => {
-                this.deleteFileStorage(upload.name);
-            })
-            .catch(error => console.log(error));
-    }
-
     // Writes the file details to the realtime db
     private saveFileData(upload: Upload, path: string) {
         this.db.list(`${path}/`).push(upload);
     }
 
     // Writes the file details to the realtime db
-    private deleteFileData(key: string) {
-        return this.db.list(`${this.basePath}/`).remove(key);
+    private deleteFileData(key: string, path: string) {
+        return this.db.list(path).remove(key);
     }
 
     // Firebase files must have unique names in their respective storage dir
     // So the name serves as a unique key
-    private deleteFileStorage(name: string) {
+    private deleteFileStorage(name: string, path: string) {
         const storageRef = firebase.storage().ref();
-        storageRef.child(`${this.basePath}/${name}`).delete();
+        storageRef.child(path).delete();
     }
 }
