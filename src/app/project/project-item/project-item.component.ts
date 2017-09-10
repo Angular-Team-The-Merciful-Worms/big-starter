@@ -19,8 +19,8 @@ export class ProjectItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    const uid = this._route.snapshot.paramMap.get('id');
-
+    const id = +this._route.snapshot.paramMap.get('id') - 1;
+    const uid = id.toString();
     this.getProject(uid);
   }
   getProject(uid: string) {

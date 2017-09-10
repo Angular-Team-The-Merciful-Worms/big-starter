@@ -21,7 +21,7 @@ export class ProjectsFireService {
         return this.db.list('/projectsMany')
             .map(innerArray => innerArray.map(project => {
                 const newProject = project;
-                newProject.projectId = project.$key;
+                newProject.projectId = +project.$key + 1;
                 return newProject;
             }))
             .catch(this.handleError) as Observable<IProject[]>;
