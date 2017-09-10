@@ -1,22 +1,22 @@
-import { CutStringPipe } from './../shared/cut-string.pipe';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
-import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
 
 import { ProjectsFireService } from './projects-fire.service';
 import { ProjectService } from './projects-local.service';
+import { ProjectListItemsComponent } from './project-list-items/project-list-items.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild([
-      { path: 'projects', component: ProjectCategoriesComponent },
       { path: 'category/:category', component: ProjectsListComponent },
+      { path: 'projects', component: ProjectCategoriesComponent },
       {
         path: 'projects/:id',
         component: ProjectItemComponent
@@ -27,12 +27,14 @@ import { ProjectService } from './projects-local.service';
     ProjectsListComponent,
     ProjectItemComponent,
     ProjectCategoriesComponent,
-    CalculatePercentPipe,
-    CutStringPipe
+    ProjectListItemsComponent,
   ],
   providers: [
     ProjectService,
     ProjectsFireService
+  ],
+  exports: [
+    ProjectListItemsComponent
   ]
 })
 export class ProjectModule { }

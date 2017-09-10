@@ -14,8 +14,10 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProjectModule } from './project/project.module';
 import { ContactsComponent } from './contacts/contacts.component';
 
+import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { AuthGuard } from './core/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { CoreModule } from './core/core.module';
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' } // 404 to be implemented
     ]),
+    UserModule,
     ProjectModule,
     SharedModule,
     HttpClientModule,

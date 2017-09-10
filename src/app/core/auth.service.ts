@@ -1,9 +1,12 @@
+import { element } from 'protractor';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
-import { User } from './user';
+
+import { Observable } from 'rxjs/Observable';
+import { User } from '../user/user';
 
 @Injectable()
 export class AuthService {
@@ -12,17 +15,20 @@ export class AuthService {
   user: User;
 
   constructor(private afAuth: AngularFireAuth,
+
     private db: AngularFireDatabase,
     private router: Router) {
-
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth;
+      this.currentUserData().subscribe(u => {
+        this.user = u;
+      });
     });
   }
 
   // Returns true if user is logged in
   get authenticated(): boolean {
-    return this.authState !== null;
+    return !!this.authState;
   }
 
   // Returns current user data
@@ -41,18 +47,8 @@ export class AuthService {
   }
 
   // Returns current user display name or Guest
-  get currentUserDisplayName(): string {
-
-    let result: string;
-    if (this.authState['displayName']) {
-      result = this.authState['displayName'];
-    } else if (!!this.user && !!this.user.firstname) {
-      result = this.user.firstname;
-    } else {
-      result = 'User';
-    }
-
-    return result;
+  currentUserData(): Observable<User> {
+    return this.db.object(`users/${this.currentUserId}`) as Observable<User>;
   }
 
   //// Social Auth ////
@@ -81,7 +77,6 @@ export class AuthService {
       .then((credential) => {
         this.authState = credential.user;
         this.updateUserData(credential);
-        this.getUserData();
       })
       .catch(error => console.log(error));
   }
@@ -91,7 +86,6 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(input.email, input.password)
       .then((u) => {
         this.authState = u;
-        this.user = input;
         this.updateUserData(input);
       });
   }
@@ -100,7 +94,6 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(input.email, input.password)
       .then((u) => {
         this.authState = u;
-        this.getUserData();
       });
   }
 
@@ -116,37 +109,21 @@ export class AuthService {
   //// Sign Out ////
   signOut(): void {
     this.afAuth.auth.signOut();
-    this.user = null;
     this.router.navigate(['/']);
   }
 
   //// Helpers ////
-  private updateUserData(input: User): void {
-    // Writes user name and email to realtime db
-    // useful if your app displays information about users or for admin features
+  public updateUserData(input: User): void {
     const path = `users/${this.currentUserId}`; // Endpoint on firebase
     const data = {
       email: this.authState.email,
+      name: input.name ? input.name : this.authState.displayName ? this.authState.displayName : input.firstname + ' ' + input.lastname,
       firstname: input.firstname,
       lastname: input.lastname,
-      name: this.authState.displayName,
-      balance: 0,
+      balance: !!input.balance ? input.balance : 0,
     };
 
     this.db.object(path).update(data)
       .catch(error => console.log(error));
-
-  }
-
-  private getUserData(): void {
-    // Writes user name and email to realtime db
-    // useful if your app displays information about users or for admin features
-    const path = `users/${this.currentUserId}`; // Endpoint on firebase
-
-    this.db.object(path)
-      .subscribe((res) => {
-        console.log(res);
-        this.user = res;
-      });
   }
 }
