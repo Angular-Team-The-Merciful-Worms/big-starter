@@ -3,13 +3,14 @@ import { IProject } from './../project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ProjectService } from './../project-service';
-import { ProjectsFireService } from './../projectsFire.service';
+import { ProjectService } from './../projects-local.service';
+import { ProjectsFireService } from './../projects-fire.service';
 
 @Component({
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.css']
 })
+
 export class ProjectsListComponent implements OnInit {
   projects: IProject[] = [];
   filteredProjects: IProject[];

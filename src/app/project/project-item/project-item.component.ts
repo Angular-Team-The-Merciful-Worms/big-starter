@@ -2,7 +2,7 @@ import { IProject } from './../project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ProjectsFireService } from './../projectsFire.service';
+import { ProjectsFireService } from './../projects-fire.service';
 
 @Component({
   selector: 'app-project-item',

@@ -1,3 +1,4 @@
+import { CutStringPipe } from './../shared/cut-string.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -7,8 +8,8 @@ import { ProjectItemComponent } from './project-item/project-item.component';
 import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
 import { CalculatePercentPipe } from '../shared/calculate-percent.pipe';
 
-import { ProjectsFireService } from './projectsFire.service';
-import { ProjectService } from './project-service';
+import { ProjectsFireService } from './projects-fire.service';
+import { ProjectService } from './projects-local.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { ProjectService } from './project-service';
     ProjectsListComponent,
     ProjectItemComponent,
     ProjectCategoriesComponent,
-    CalculatePercentPipe
+    CalculatePercentPipe,
+    CutStringPipe
   ],
   providers: [
     ProjectService,
