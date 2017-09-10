@@ -1,21 +1,18 @@
 @import url('../projects-list/projects-list.component.css');
-
 .user-projects {
     margin-top: 60px;
 }
 
-.category-header {
+.user-header {
     background-color: #666;
     padding: 10px 20px;
     box-shadow: 2px 2px 3px #000;
 }
 
-.category-header a {
+.user-header h3 {
+    display: inline-block;
     color: #fff;
-}
-
-.category-header a:hover {
-    color: #F4EA2F;
+    margin: 0;
 }
 
 .project-img {
@@ -28,4 +25,10 @@
 .text-muted {
     padding-left: 20px;
     color: #bbb;
+}
+
+input {
+    color: #222;
+    padding: 3px;
+    font-size: 1.2em;
 }

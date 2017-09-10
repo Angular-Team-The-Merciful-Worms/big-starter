@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { LoginService } from "../shared/navigation/login-service/login.service";
 
 @Component({
     templateUrl: './welcome.component.html',
@@ -9,7 +9,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 export class WelcomeComponent implements OnInit {
     public pageTitle = 'Big Starter';
 
-    constructor(private modalService: NgbModal, public auth: AuthService) { }
+    constructor(public login: LoginService, public auth: AuthService) { }
 
     ngOnInit(): void {
         console.log(this.auth)

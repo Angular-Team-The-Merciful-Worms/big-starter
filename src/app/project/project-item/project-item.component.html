@@ -19,7 +19,7 @@
                             <span>Support with donation!</span>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" [style.width.%]='60'>funded {{ project.accumulatedFunds | calculatePercent:project.targetFunds }}%</div>
+                            <div class="progress-bar bg-info" role="progressbar" [style.width.%]='project.accumulatedFunds / project.targetFunds * 100'>funded {{ project.accumulatedFunds | calculatePercent:project.targetFunds }}%</div>
                         </div>
                         <span>Help us to complete the goal of {{ project.targetFunds | currency:'USD':true:'1.2-2'}}!</span>
                     </div>
