@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { AuthService } from './../core/auth.service';
-import { User } from './user';
-import { PasswordValidation } from './password.validator';
+import { AuthService } from '../../core/auth.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-profile',
@@ -13,29 +12,21 @@ import { PasswordValidation } from './password.validator';
 })
 export class ProfileComponent implements OnInit {
   userForm: FormGroup;
-
   errorMessage: string;
   user: User;
 
   formErrors = {
     'email': '',
-    'password': '',
     'firstname': '',
     'lastname': '',
     'name': '',
+    'balance': '',
   };
 
   validationMessages = {
     'email': {
       'required': 'Email is required.',
       'email': 'Enter a valid email'
-    },
-    'password': {
-      'required': 'Password is required.',
-      'pattern': 'Password must be include at one letter and one number.',
-      'minlength': 'Password must be at least 6 characters long.',
-      'maxlength': 'Password cannot be more than 40 characters long.',
-      'mathcing': 'Passwords do not match',
     },
     'firstname': {
       'required': 'First name is required.',
@@ -51,6 +42,10 @@ export class ProfileComponent implements OnInit {
       'required': 'Username name is required.',
       'minlength': 'Username name must be at least 4 characters long.',
       'maxlength': 'Username name cannot be more than 80 characters long.',
+    },
+    'balance': {
+      'required': 'Balance is required.',
+      'min': 'Balance should be a positive number',
     },
   };
 
@@ -70,18 +65,6 @@ export class ProfileComponent implements OnInit {
         Validators.required,
         Validators.email
       ]],
-      'password': ['', [
-        Validators.required,
-        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(2),
-        Validators.maxLength(40)
-      ]],
-      'confirmPassword': ['', [
-        Validators.required,
-        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-        Validators.minLength(2),
-        Validators.maxLength(40)
-      ]],
       'firstname': ['', [
         Validators.required,
         Validators.minLength(2),
@@ -97,30 +80,39 @@ export class ProfileComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(40)
       ]],
-    }, { validator: PasswordValidation.MatchPassword });
+      'balance': ['', [
+        Validators.required,
+        Validators.min(0),
+      ]],
+    });
 
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged(); // reset validation messages
   }
-  signup(): void {
+  updateData(): void {
+    console.log('update');
     const user = {
       email: this.userForm.value['email'],
       password: this.userForm.value['password'],
       firstname: this.userForm.value['firstname'],
       lastname: this.userForm.value['lastname'],
+      balance: this.userForm.value['balance'],
     };
+
+    this.authService.updateUserData(user);
   }
 
+  changePassword(): void {
+    console.log('pass');
+  }
 
   onValueChanged(data?: any) {
     if (!this.userForm) { return; }
     const form = this.userForm;
     for (const field in this.formErrors) {
       if (Object.prototype.hasOwnProperty.call(this.formErrors, field)) {
-
         // clear previous error message (if any)
         this.formErrors[field] = '';
-
         const control = form.get(field);
         if (control && control.dirty && !control.valid) {
           const messages = this.validationMessages[field];
@@ -133,6 +125,7 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
+
   getUserData() {
     this.authService.currentUserData()
       .subscribe(u => this.user = u,

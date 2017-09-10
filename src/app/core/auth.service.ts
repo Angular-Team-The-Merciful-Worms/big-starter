@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
-import { User } from '../profile/user';
 
 import { Observable } from 'rxjs/Observable';
+import { User } from '../user/user';
 
 @Injectable()
 export class AuthService {
@@ -113,16 +113,14 @@ export class AuthService {
   }
 
   //// Helpers ////
-  private updateUserData(input: User): void {
-    // Writes user name and email to realtime db
-    // useful if your app displays information about users or for admin features
+  public updateUserData(input: User): void {
     const path = `users/${this.currentUserId}`; // Endpoint on firebase
     const data = {
       email: this.authState.email,
-      name: input.firstname ? input.firstname + ' ' + input.lastname : this.authState.displayName,
+      name: input.name ? input.name : this.authState.displayName ? this.authState.displayName : input.firstname + ' ' + input.lastname,
       firstname: input.firstname,
       lastname: input.lastname,
-      balance: 0,
+      balance: !!input.balance ? input.balance : 0,
     };
 
     this.db.object(path).update(data)
