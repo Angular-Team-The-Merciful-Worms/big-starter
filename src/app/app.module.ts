@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { AuthGuard } from './core/auth.guard';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { CoreModule } from './core/core.module';
     AngularFireAuthModule,
     CoreModule,
     RouterModule.forRoot([
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'welcome', component: WelcomeComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },

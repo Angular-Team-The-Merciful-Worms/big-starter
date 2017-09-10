@@ -1,3 +1,4 @@
+import { LoginService } from './navigation/login-service/login.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -26,6 +27,9 @@ import { FooterComponent } from './footer/footer.component';
     exports: [
         FooterComponent,
         NavigationComponent,
+    ],
+    providers: [
+        LoginService,
     ]
 })
 export class SharedModule { }
