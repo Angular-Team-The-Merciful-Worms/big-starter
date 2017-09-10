@@ -13,13 +13,10 @@ import { ProjectsFireService } from './../projects-fire.service';
 })
 export class ProjectCategoriesComponent implements OnInit {
   categories: string[];
-  projects: IProject[] = [];
   individualProjects: IProject[];
   groupProjects: IProject[];
   communityProjects: IProject[];
-  gainedPercent: number = 0;
   errorMessage: string;
-  categoryFilter: string;
   projectsToDisplay: number = 4;
 
   constructor(private _route: ActivatedRoute,
@@ -28,31 +25,22 @@ export class ProjectCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProjects();
-
-
   }
 
   getProjects() {
     this.projectsFireService.getProjects()
       .subscribe(projects => {
-        this.projects = projects;
-
-        this.individualProjects = this.projects
+        this.individualProjects = projects
           .filter(x => x.category.toLowerCase() === 'individual')
           .splice(0, this.projectsToDisplay);
 
-        this.groupProjects = this.projects
+        this.groupProjects = projects
           .filter(x => x.category.toLowerCase() === 'group')
           .splice(0, this.projectsToDisplay);
 
-        this.communityProjects = this.projects
+        this.communityProjects = projects
           .filter(x => x.category.toLowerCase() === 'community')
           .splice(0, this.projectsToDisplay);
-
-        // console.log(this.projects);
-        // console.log(this.individualProjects);
-        // console.log(this.groupProjects);
-        // console.log(this.communityProjects);
       },
       error => this.errorMessage = <any>error);
   }
