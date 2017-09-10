@@ -4,8 +4,8 @@
             <h1 class="main-header">{{ pageTitle }}</h1>
             <h4>A small place for big ideas</h4>
             <hr>
-            <a id="subscribe" class="btn btn-primary btn-xl" data-toggle="modal" title="Login or register" href="#loginModal">Subscribe</a> &nbsp;
-            <a href="#" class="btn btn-primary btn-xl page-scroll">Get Started</a>
+            <a *ngIf="auth.authenticated" [routerLink]="['/user', auth.currentUserId]" id="subscribe" class="btn btn-primary btn-xl">My projects</a> &nbsp;
+            <a *ngIf="!auth.authenticated" data-toggle="modal" title="Register" (click)="openRegisterModal()" class="btn btn-primary btn-xl page-scroll">Get Started</a>
         </div>
     </div>
 </header>
@@ -20,7 +20,7 @@
                     Big Starter is a web platform for sharing innovative products, projects and ideas of any kind. Here we let subscribers showcase their ideas in a few simple steps. Other subscribers can vote for projects, buy a product or even raise funds for a big cause,
                     project or innovation. Everything worth to be shared to the world is accepted, from a new book or movie idea to a new energy source or interstellar spaceship design, why not! <br> So come and join us!
                 </p>
-                <a [routerLink]="['/projects']" href="#three" class="btn btn-default btn-xl page-scroll">Browse projects</a>
+                <a [routerLink]="['/projects']" class="btn btn-default btn-xl page-scroll">Browse projects</a>
             </div>
         </div>
     </div>
@@ -51,8 +51,8 @@
             </div>
             <div class="col-lg-4 col-md-4 text-center">
                 <div class="feature">
-                    <h3>Buy</h3>
-                    <p class="text-muted">If a starter product is for sale you can buy it. This way you support the team behind it!</p>
+                    <h3>Donate</h3>
+                    <p class="text-muted">You can donate money to the project you like. This way you support the team behind it!</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 @import url('../projects-list/projects-list.component.css');
-.project-categories {
+
+.user-projects {
     margin-top: 60px;
 }
 
@@ -23,13 +24,6 @@
     overflow: hidden;
     box-sizing: border-box;
 }
-
-
-/* @media(min-width:1080px) {
-    .project-img {
-        height: 100px;
-    }
-} */
 
 .text-muted {
     padding-left: 20px;
