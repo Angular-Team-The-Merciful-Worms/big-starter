@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -41,6 +42,7 @@ import { AuthGuard } from './core/auth.guard';
     ProjectModule,
     SharedModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
   ],
   bootstrap: [AppComponent],
