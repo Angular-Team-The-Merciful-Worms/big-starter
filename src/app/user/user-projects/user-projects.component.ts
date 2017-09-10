@@ -6,7 +6,6 @@ import { User } from "../user";
 
 import { ProjectsFireService } from './../../project/projects-fire.service';
 
-
 @Component({
   selector: 'app-user-projects',
   templateUrl: './user-projects.component.html',
@@ -16,7 +15,6 @@ export class UserProjectsComponent implements OnInit {
   userProjects: IProject[];
   gainedPercent: number = 0;
   errorMessage: string;
-  userId: string;
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -25,12 +23,13 @@ export class UserProjectsComponent implements OnInit {
 
     ngOnInit(): void {
       this.getUser();
-      this.getProjects(this.userId);
     }
   
     getUser() {
-      this.userId = this.auth.currentUserId;
-      console.log(this.userId);
+      this.auth.currentUserData()
+      .subscribe(currentUser => {
+        this.getProjects(currentUser.$key);
+      });
     }
     getProjects(id: string) {
       this.projectsFireService.getProjects()
