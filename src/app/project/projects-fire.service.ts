@@ -22,6 +22,12 @@ export class ProjectsFireService {
             .map(innerArray => innerArray.map(project => {
                 const newProject = project;
                 newProject.projectId = +project.$key + 1;
+                if (project.upvotedBy) {
+                    newProject.votes = project.upvotedBy.length;
+                    // console.log(project.upvotedBy);
+                } else {
+                    newProject.votes = 0;
+                }
                 return newProject;
             }))
             .catch(this.handleError) as Observable<IProject[]>;
