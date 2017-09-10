@@ -20,10 +20,11 @@ export class ProjectItemComponent implements OnInit {
 
   ngOnInit() {
     const id = +this._route.snapshot.paramMap.get('id') - 1;
-    const uid = id.toString();
-    this.getProject(uid);
+    this.getProject(id);
   }
-  getProject(uid: string) {
+
+  getProject(id: number) {
+    const uid = id.toString();
     this._projectsFireService.getProjectByUid(uid)
       .subscribe(project => {
         this.project = project;

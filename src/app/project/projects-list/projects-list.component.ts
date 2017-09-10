@@ -30,22 +30,18 @@ export class ProjectsListComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
-    private _projectService: ProjectService,
     private projectsFireService: ProjectsFireService) { }
 
   ngOnInit(): void {
-
-    this.projectsFireService.getProjects()
-      .subscribe((list) => console.log(list));
-
     this.categoryFilter = this._route.snapshot.paramMap.get('category');
 
+    this.getProjects(this.categoryFilter);
+
+  }
+
+  getProjects(category: string) {
     this.projectsFireService.getProjectsByCategory(this.categoryFilter)
       .subscribe(projects => this.projects = projects,
       error => this.errorMessage = <any>error);
-
-    // this._projectService.getProjectsByCategory(this.categoryFilter)
-    //   .subscribe(projects => this.projects = projects,
-    //   error => this.errorMessage = <any>error);
   }
 }

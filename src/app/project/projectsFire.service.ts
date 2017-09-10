@@ -13,7 +13,7 @@ export class ProjectsFireService {
     constructor(private db: AngularFireDatabase) { }
 
     getProjectByUid(uid: string) {
-        return this.db.object('/projectsMany/' + uid);
+        return this.db.object('/projectsMany/' + uid) as Observable<IProject>;
     }
 
     // unclear if a better way to extract id?
@@ -29,7 +29,7 @@ export class ProjectsFireService {
 
     getProjectsByCategory(category: string): Observable<IProject[]> {
         return this.getProjects()
-            .map(projs => projs.filter(p => p.category === category));
+            .map(projs => projs.filter(p => p.category === category)) as Observable<IProject[]>;
     }
 
     // not sure it works for FireBase - does not hurt atm
