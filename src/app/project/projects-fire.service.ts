@@ -38,6 +38,7 @@ export class ProjectsFireService {
     private mapProject(project) {
         const newProject = project;
         newProject.projectId = +project.$key;
+
         if (!project.upvotedBy) {
             // newProject.votes = project.upvotedBy.length;
             newProject.upvotedBy = [];

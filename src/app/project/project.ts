@@ -13,7 +13,6 @@ export interface IProject {
     accumulatedFunds: number;
     targetFunds: number;
     upvotedBy?: string[];
-
     imageUrl?: string;
     projectPicture?: Upload;
 }
