@@ -1,5 +1,6 @@
 import { Upload } from './../../core/upload';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
@@ -57,7 +58,9 @@ export class AddProjectComponent implements OnInit {
         private authService: AuthService,
         private fb: FormBuilder,
         private uploadService: UploadService,
-        private projectService: ProjectsFireService) {
+        private projectService: ProjectsFireService,
+        private router: Router,
+    ) {
 
         this.project = {
             authorName: 'aaa',
@@ -113,6 +116,7 @@ export class AddProjectComponent implements OnInit {
         this.uploadProjectPic();
         this.projectService.createNewProject(this.project);
         this.projectService.setProjectId(this.project.projectId + 1);
+        this.router.navigate(['projects/' + this.project.projectId]);
     }
 
     uploadProjectPic() {
@@ -154,7 +158,6 @@ export class AddProjectComponent implements OnInit {
                 this.project.authorName = u.firstname + ' ' + u.lastname;
             });
     }
-
     getProjectId() {
         this.projectService
             .getNextProjectId()
