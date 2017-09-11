@@ -29,7 +29,7 @@ export class ProjectItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this._route.snapshot.paramMap.get('id') - 1;
+    const id = +this._route.snapshot.paramMap.get('id');
     this.initialize(id);
   }
   toggleVoteProject() {
@@ -38,7 +38,7 @@ export class ProjectItemComponent implements OnInit {
     } else {
       this.project.upvotedBy.push(this.user.$key);
     }
-    const uid = (this.project.projectId - 1).toString();
+    const uid = (this.project.projectId).toString();
     this._projectsFireService.updateProjectByUid(uid, this.project)
       .then(_ => console.log('success'))
       .catch(error => console.log(error));
