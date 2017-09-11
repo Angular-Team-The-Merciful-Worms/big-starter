@@ -73,6 +73,7 @@ export class AddProjectComponent implements OnInit {
             votes: 0,
             accumulatedFunds: 0,
             targetFunds: 1000,
+            authorId: this.authService.currentUserId,
         };
     }
 
@@ -113,10 +114,16 @@ export class AddProjectComponent implements OnInit {
     }
 
     createProject() {
+        const id = this.project.projectId;
+
         this.uploadProjectPic();
         this.projectService.createNewProject(this.project);
         this.projectService.setProjectId(this.project.projectId + 1);
-        this.router.navigate(['projects/' + this.project.projectId]);
+
+        setTimeout(() => {
+            this.router.navigate(['projects/' + id]);
+        }, 500);
+
     }
 
     uploadProjectPic() {
