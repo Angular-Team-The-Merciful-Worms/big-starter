@@ -33,6 +33,13 @@ export class ProjectItemComponent implements OnInit {
     this.initialize(id);
   }
 
+  addDonation(ammount: number) {
+    this.project.accumulatedFunds += ammount;
+    const uid = (this.project.projectId - 1).toString();
+    this._projectsFireService.updateProjectByUid(uid, this.project)
+    .then(_ => console.log('success'))
+    .catch(error => console.log(error));
+  }
   toggleVoteProject() {
     if (this.votedFor) {
       this.project.upvotedBy.splice(this.indexVotedfor, 1);
