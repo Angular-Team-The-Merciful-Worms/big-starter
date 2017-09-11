@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { LoginService } from "../shared/navigation/login-service/login.service";
+import { LoginService } from '../shared/navigation/login-service/login.service';
 
 @Component({
     templateUrl: './welcome.component.html',
@@ -12,6 +12,6 @@ export class WelcomeComponent implements OnInit {
     constructor(public login: LoginService, public auth: AuthService) { }
 
     ngOnInit(): void {
-        console.log(this.auth)
+        console.log(this.auth);
     }
 }

@@ -13,8 +13,8 @@ import { ProjectsFireService } from './../projects-fire.service';
 export class ProjectsListComponent implements OnInit {
   projects: IProject[] = [];
   filteredProjects: IProject[];
-  gainedPercent: number = 0;
-  defaultImageUrl: string = '../../../assets/no-image.jpg';
+  gainedPercent = 0;
+  defaultImageUrl = '../../../assets/no-image.jpg';
   errorMessage: string;
   categoryFilter: string;
   _listFilter: string;
@@ -40,6 +40,6 @@ export class ProjectsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryFilter = this._route.snapshot.paramMap.get('category');
-      this.getProjects(this.categoryFilter);
+    this.getProjects(this.categoryFilter);
   }
 }

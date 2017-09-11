@@ -17,7 +17,7 @@ export class ProjectCategoriesComponent implements OnInit {
   groupProjects: IProject[];
   communityProjects: IProject[];
   errorMessage: string;
-  projectsToDisplay: number = 4;
+  projectsToDisplay = 4;
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,

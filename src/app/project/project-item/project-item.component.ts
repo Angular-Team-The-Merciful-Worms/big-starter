@@ -24,8 +24,8 @@ export class ProjectItemComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
     private _router: Router,
     private _projectsFireService: ProjectsFireService,
-    private auth: AuthService,
-    private login: LoginService) {
+    public auth: AuthService,
+    public login: LoginService) {
   }
 
   ngOnInit() {

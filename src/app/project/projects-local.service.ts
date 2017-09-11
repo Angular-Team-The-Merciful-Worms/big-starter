@@ -1,15 +1,16 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
+import { IProject } from './project';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { IProject } from "./project";
 
 @Injectable()
 
 export class ProjectService {
-    private _projectUrl: string = '../../assets/temp.projects.many.json';
+    private _projectUrl = '../../assets/temp.projects.many.json';
 
     constructor(private _http: HttpClient) { }
 

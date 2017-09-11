@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthService } from '../../../core/auth.service';
-import { ProjectsFireService } from "../../projects-fire.service";
+import { ProjectsFireService } from '../../projects-fire.service';
 import { IProject } from '../../project';
 
 @Component({
-    selector: 'donate-funds',
+    selector: 'app-donate-funds',
     templateUrl: './donate.component.html',
     styleUrls: ['../../../shared/navigation/form.component.css']
 })
