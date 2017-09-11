@@ -1,3 +1,4 @@
+import { UploadService } from './upload.service';
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 
 import { SharedModule } from './../shared/shared.module';
@@ -6,11 +7,12 @@ import { AuthGuard } from './auth.guard';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
   ],
   providers: [
     AuthService,
     AuthGuard,
+    UploadService,
   ],
 })
 

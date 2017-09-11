@@ -13,29 +13,34 @@ export class ProjectsFireService {
     constructor(private db: AngularFireDatabase) { }
 
     getProjectByUid(uid: string) {
-        return this.db.object('/projects/' + uid) as Observable<IProject>;
+        return this.db.object('/projects/' + uid)
+            .map(this.mapProject) as Observable<IProject>;
     }
 
     // unclear if a better way to extract id?
     getProjects(): Observable<IProject[]> {
         return this.db.list('/projects')
-            .map(innerArray => innerArray.map(project => {
-                const newProject = project;
-                newProject.projectId = +project.$key + 1;
-                return newProject;
-            }))
+            .map(innerArray => innerArray.map(this.mapProject))
             .catch(this.handleError) as Observable<IProject[]>;
     }
 
-    // getProjectsByCategory(category: string): Observable<IProject[]> {
-    //     return this.db.list('/projects', {
-    //         query: {
-    //             orderByChild: 'votes',
-    //             equalTo: category
-    //         }
-    //     })
-    //     .catch(this.handleError) as Observable<IProject[]>;
-    // }
+    updateProjectByUid(uid: string, obj: IProject) {
+        return this.db.list('/projects').update(uid, obj) as Promise<void>;
+    }
+
+    private mapProject(project) {
+        const newProject = project;
+        newProject.projectId = +project.$key + 1;
+        if (!project.upvotedBy) {
+            // newProject.votes = project.upvotedBy.length;
+            newProject.upvotedBy = [];
+            // console.log(project.upvotedBy);
+        }
+
+        // console.log(newProject);
+        newProject.votes = newProject.upvotedBy.length;
+        return newProject;
+    }
 
     getProjectsByCategory(category: string): Observable<IProject[]> {
         return this.getProjects()

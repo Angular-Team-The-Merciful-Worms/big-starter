@@ -79,3 +79,7 @@ h3 {
     height: 20px;
     width: 60%
 }
+
+a:hover {
+ cursor:pointer;
+}
