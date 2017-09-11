@@ -11,7 +11,6 @@
             <h3>Posted projects </h3>
             <span class="text-muted hidden-xs"> Search for project: </span>
             <input type="text" placeholder="project name" [(ngModel)]='listFilter'>
-            <button class="btn btn-default create-btn">Create new project</button>
         </div>
 
         <app-project-list-items [projects]="userProjects" [number]="1"></app-project-list-items>

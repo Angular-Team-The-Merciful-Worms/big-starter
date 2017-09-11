@@ -33,14 +33,14 @@ export class DonateComponent implements OnInit {
         let funds = +this.project.accumulatedFunds;
         funds += ammount;
         this.project.accumulatedFunds = funds;
-        const uid = (this.project.projectId - 1).toString();
+        const uid = this.project.projectId.toString();
         this._projectsFireService.updateProjectByUid(uid, this.project)
             .then(_ => console.log('success'))
             .catch(error => console.log(error));
     }
 
     initialize(id: number) {
-        const uid = (id - 1).toString();
+        const uid = id.toString();
         this._projectsFireService.getProjectByUid(uid)
             .subscribe(project => {
                 this.project = project;
