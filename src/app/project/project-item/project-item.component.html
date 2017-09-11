@@ -17,9 +17,10 @@
                             <span>Vote for project!</span>
                         </div>
                         <div class="badges">
-                            <a *ngIf="auth.authenticated"  class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
-                            <a *ngIf="!auth.authenticated" data-toggle="modal" (click)="login.openLoginModal()"  class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
-                            
+                          
+                            <a *ngIf="!auth.authenticated" (click)="login.openLoginModal()" class="badge-custom badge-funds"> gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
+                            <a *ngIf="auth.authenticated" data-toggle="modal" href="#donateModal" class="badge-custom badge-funds"> gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
+
                             <span>Support with donation!</span>
                         </div>
                         <div class="progress">
@@ -34,3 +35,4 @@
     </div>
 </section>
 
+<donate-funds [thisId]='project.projectId'></donate-funds>

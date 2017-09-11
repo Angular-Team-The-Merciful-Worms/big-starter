@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProjectsFireService } from './../projects-fire.service';
+
 import { AuthService } from '../../core/auth.service';
 import { LoginService } from './../../shared/navigation/login-service/login.service';
-
 
 @Component({
   selector: 'app-project-item',
@@ -57,8 +57,4 @@ export class ProjectItemComponent implements OnInit {
           });
       });
   }
-
-
-
-
 }
