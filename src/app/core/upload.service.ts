@@ -15,7 +15,7 @@ export class UploadService {
 
     public uploadProjectPicture(upload: Upload, id: number) {
         const path = '/projects/' + id + '/projectPicture';
-        this.pushUpload(upload, path);
+        this.pushUpload(upload, path, id);
     }
 
     public getProfilePicture() {
@@ -42,7 +42,7 @@ export class UploadService {
     }
 
     // Executes the file uploading to firebase https://firebase.google.com/docs/storage/web/upload-files
-    private pushUpload(upload: Upload, path: string) {
+    private pushUpload(upload: Upload, path: string, id?: number) {
         const storageRef = firebase.storage().ref();
         const uploadTask = storageRef.child(`${path}`).put(upload.file);
 
@@ -61,6 +61,9 @@ export class UploadService {
                 upload.url = uploadTask.snapshot.downloadURL;
                 upload.name = upload.file.name;
                 this.saveFileData(upload, path);
+                if (!!id) {
+                    this.db.object(`/projects/${id}/imageUrl`).set(uploadTask.snapshot.downloadURL);
+                }
                 return upload;
             }
         );

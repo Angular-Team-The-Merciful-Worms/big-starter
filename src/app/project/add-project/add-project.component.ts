@@ -110,8 +110,8 @@ export class AddProjectComponent implements OnInit {
     }
 
     createProject() {
-        this.projectService.createNewProject(this.project);
         this.uploadProjectPic();
+        this.projectService.createNewProject(this.project);
         this.projectService.setProjectId(this.project.projectId + 1);
     }
 
