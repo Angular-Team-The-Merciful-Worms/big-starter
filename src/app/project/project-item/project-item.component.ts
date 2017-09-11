@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProjectsFireService } from './../projects-fire.service';
+import { AuthService } from "../../core/auth.service";
 
 @Component({
   selector: 'app-project-item',
@@ -15,7 +16,8 @@ export class ProjectItemComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
-    private _projectsFireService: ProjectsFireService) {
+    private _projectsFireService: ProjectsFireService,
+    public auth: AuthService) {
   }
 
   ngOnInit() {

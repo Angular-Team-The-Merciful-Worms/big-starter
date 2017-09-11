@@ -1,3 +1,4 @@
+import { DonateComponent } from './project-item/donate/donate.component';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
@@ -28,6 +29,7 @@ import { ProjectListItemsComponent } from './project-list-items/project-list-ite
     ProjectItemComponent,
     ProjectCategoriesComponent,
     ProjectListItemsComponent,
+    DonateComponent
   ],
   providers: [
     ProjectService,
