@@ -1,10 +1,11 @@
-import { IProject } from './../project';
-
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthService } from '../../core/auth.service';
 import { UploadService } from '../../core/upload.service';
+
+import { User } from './../../user/user';
+import { IProject } from './../project';
 
 @Component({
     selector: 'app-add-project-profile',
@@ -14,8 +15,21 @@ import { UploadService } from '../../core/upload.service';
 export class AddProjectComponent implements OnInit {
 
     userForm: FormGroup;
-
-    project: IProject;
+    project = {
+        authorName: '',
+        projectId: -1,
+        projectName: '',
+        description: '',
+        category: 'Individual',
+        location: '',
+        dateCreated: '',
+        votes: 1,
+        accumulatedFunds: 0,
+        targetFunds: 0,
+        image: null
+    };
+    selectedFiles: FileList;
+    user: User;
 
     formErrors = {
         'projectname': '',
@@ -47,28 +61,17 @@ export class AddProjectComponent implements OnInit {
     };
 
     constructor(private authService: AuthService, private fb: FormBuilder, private uploadService: UploadService) {
-
-        this.project = {
-            projectId: -1,
-            projectName: '',
-            authorName: '',
-            description: '',
-            category: '',
-            location: '',
-            dateCreated: '',
-            votes: 1,
-            accumulatedFunds: 0,
-            targetFunds: 0,
-            image: null
-        };
     }
 
     ngOnInit(): void {
+        // this.getUserData();
         this.buildForm();
     }
 
     buildForm(): void {
         this.userForm = this.fb.group({
+            'authorName': [''],
+            'dateCreated': [''],
             'projectname': ['', [
                 Validators.required,
                 Validators.minLength(4),
@@ -79,7 +82,8 @@ export class AddProjectComponent implements OnInit {
                 Validators.minLength(2),
                 Validators.maxLength(25)
             ]],
-            'descirpiton': ['', [
+            'category': [''],
+            'description': ['', [
                 Validators.required,
                 Validators.minLength(250),
                 Validators.maxLength(25000)
@@ -90,26 +94,46 @@ export class AddProjectComponent implements OnInit {
             ]],
         });
 
-        // this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
-        // this.onValueChanged(); // reset validation messages
-    }
-    updateData(): void {
-        const user = {
-            email: this.userForm.value['email'],
-            password: this.userForm.value['password'],
-            firstname: this.userForm.value['firstname'],
-            lastname: this.userForm.value['lastname'],
-            name: this.userForm.value['name'],
-            balance: this.userForm.value['balance'],
-        };
-
-        this.authService.updateUserData(user);
+        this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
+        this.onValueChanged(); // reset validation messages
     }
 
     createProject() {
+        console.log(this.project);
+    }
 
+    uploadProfilePic() {
     }
 
     detectFiles(event) {
+        this.selectedFiles = event.target.files;
+    }
+
+    onValueChanged(data?: any) {
+        if (!this.userForm) { return; }
+        const form = this.userForm;
+        for (const field in this.formErrors) {
+            if (Object.prototype.hasOwnProperty.call(this.formErrors, field)) {
+                // clear previous error message (if any)
+                this.formErrors[field] = '';
+                const control = form.get(field);
+                if (control && control.dirty && !control.valid) {
+                    const messages = this.validationMessages[field];
+                    for (const key in control.errors) {
+                        if (Object.prototype.hasOwnProperty.call(control.errors, key)) {
+                            this.formErrors[field] += messages[key] + ' ';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    getUserData() {
+        this.authService.currentUserData()
+            .subscribe(u => {
+                this.user = u;
+                this.project.authorName = u.name;
+            });
     }
 }

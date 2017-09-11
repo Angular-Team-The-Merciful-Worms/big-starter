@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angula
 
 import { AuthService } from '../../core/auth.service';
 import { UploadService } from '../../core/upload.service';
+
 import { User } from '../user';
 import { Upload } from '../../core/upload';
 
@@ -15,7 +16,6 @@ export class ProfileComponent implements OnInit {
 
   defaultAvatar = 'http://clients.timhartmann.net/brucegg/dummies/fpo_avatar.png';
   userForm: FormGroup;
-  errorMessage: string;
   user: User;
   updated = false;
   resetPass = false;
@@ -109,16 +109,7 @@ export class ProfileComponent implements OnInit {
     this.onValueChanged(); // reset validation messages
   }
   updateData(): void {
-    const user = {
-      email: this.userForm.value['email'],
-      password: this.userForm.value['password'],
-      firstname: this.userForm.value['firstname'],
-      lastname: this.userForm.value['lastname'],
-      name: this.userForm.value['name'],
-      balance: this.userForm.value['balance'],
-    };
-
-    this.authService.updateUserData(user);
+    this.authService.updateUserData(this.user);
     this.updated = true;
 
     setTimeout(() => {
@@ -195,8 +186,7 @@ export class ProfileComponent implements OnInit {
         const pic = this.user.picture;
         this.user = u;
         this.user.picture = pic;
-      },
-      error => this.errorMessage = <any>error);
+      });
   }
 
   getUserProfilePicture() {
