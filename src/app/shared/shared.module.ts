@@ -2,7 +2,7 @@ import { LoginService } from './navigation/login-service/login.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { RegisterFormComponent } from './navigation/register-form/register-form.component';
 import { UserLoginComponent } from './navigation/user-login/user-login.component';
@@ -34,7 +34,8 @@ import { CalculatePercentPipe } from "./calculate-percent.pipe";
         NavigationComponent,
         CalculatePercentPipe,
         CutStringPipe,
-        CommonModule
+        CommonModule,
+        FormsModule
     ],
     providers: [
         LoginService,

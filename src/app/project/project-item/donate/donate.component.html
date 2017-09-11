@@ -1,0 +1,31 @@
+<div id="donateModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Contribution.</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row vcenter">
+                    <div class="col-xs-7">
+                        <div class="column well">
+                            <form>
+                                <div class="form-group">
+                                    <label for="password" class="control-label">Ammount</label>
+                                    <input type="number" class="form-control" id="money" name="money" [(ngModel)]='money' required="required" placeholder="$10.00">
+                                </div>
+
+                                <button (click)='onClick()' type="submit" class="btn btn-success btn-block" data-dismiss="modal">Donate</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <span class="form-control-static pull-left footer-text">Thank you for your contrubution!</span>
+            </div>
+        </div>
+    </div>
+</div>

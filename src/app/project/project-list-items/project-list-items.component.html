@@ -9,7 +9,7 @@
                 </div>
                 <p class="text-faded">{{ project.description | cutString:10 }}</p>
                 <div class="project-details">
-                    <span class="badge-custom badge-votes">{{ project.votes }} votes</span>
+                    <span class="badge-custom badge-votes">{{ project.upvotedBy.length }} votes</span>
                     <span class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</span>
                     <div class="progress">
                         <div class="progress-bar bg-info" role="progressbar" [style.width.%]='project.accumulatedFunds / project.targetFunds * 100'></div>

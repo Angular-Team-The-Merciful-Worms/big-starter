@@ -12,6 +12,7 @@ import { ProjectsFireService } from './../../project/projects-fire.service';
   styleUrls: ['./user-projects.component.css']
 })
 export class UserProjectsComponent implements OnInit {
+  projects: IProject[];
   userProjects: IProject[];
   gainedPercent: number = 0;
   errorMessage: string;
@@ -20,6 +21,21 @@ export class UserProjectsComponent implements OnInit {
     private _router: Router,
     private projectsFireService: ProjectsFireService,
     public auth: AuthService) { }
+    _listFilter: string;
+    get listFilter(): string {
+        return this._listFilter;
+    }
+    set listFilter(value: string) {
+        this._listFilter = value;
+        console.log(this.listFilter);
+        this.userProjects = this.listFilter ? this.performFilter(this.listFilter) : this.projects;
+    }
+
+    performFilter(filterBy: string): IProject[] {
+      filterBy = filterBy.toLocaleLowerCase();
+      return this.projects.filter((product: IProject) =>
+            product.projectName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
 
     ngOnInit(): void {
       this.getUser();
@@ -34,8 +50,9 @@ export class UserProjectsComponent implements OnInit {
     getProjects(id: string) {
       this.projectsFireService.getProjects()
         .subscribe(projects => { 
-          this.userProjects = projects
+          this.projects = projects
           .filter(x => x.authorId === id);
+          this.userProjects = this.projects;
          },
         error => this.errorMessage = <any>error);
     }

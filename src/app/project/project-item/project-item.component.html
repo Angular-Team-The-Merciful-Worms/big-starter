@@ -11,17 +11,23 @@
                     <p class="text-faded">{{ project.description }}</p>
                     <div class="project-details">
                         <div class="badges">
-                            <a href="#" class="badge-custom badge-votes">{{ project.votes }} votes</a>
+                            <a *ngIf="auth.authenticated" (click)="toggleVoteProject()" class="badge-custom badge-votes">{{ project.upvotedBy.length }} votes</a>
+                            <a *ngIf="!auth.authenticated" data-toggle="modal" (click)="login.openLoginModal()" class="badge-custom badge-votes">{{ project.upvotedBy.length }} votes</a>
+
                             <span>Vote for project!</span>
                         </div>
                         <div class="badges">
-                            <a href="#" class="badge-custom badge-funds">gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
+
+                            <a *ngIf="!auth.authenticated" (click)="login.openLoginModal()" class="badge-custom badge-funds"> gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
+                            <a *ngIf="auth.authenticated" data-toggle="modal" href="#donateModal" class="badge-custom badge-funds"> gained {{ project.accumulatedFunds | currency:'USD':true:'1.2-2'}}</a>
+
                             <span>Support with donation!</span>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-info" role="progressbar" [style.width.%]='project.accumulatedFunds / project.targetFunds * 100'>funded {{ project.accumulatedFunds | calculatePercent:project.targetFunds }}%</div>
                         </div>
-                        <span>Help us to complete the goal of {{ project.targetFunds | currency:'USD':true:'1.2-2'}}!</span>
+                        <span *ngIf="project.accumulatedFunds < project.targetFunds">Help us to complete the goal of {{ project.targetFunds | currency:'USD':true:'1.2-2'}}!</span>
+                        <span *ngIf="project.accumulatedFunds >= project.targetFunds">Goal complete!</span>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -30,5 +36,4 @@
     </div>
 </section>
 
-<!-- <a *ngIf="auth.authenticated" [routerLink]="['/myprojects']" id="subscribe" class="btn btn-primary btn-xl">My projects</a> &nbsp;
-<a *ngIf="!auth.authenticated" data-toggle="modal" title="Register" (click)="login.openLoginModal()" class="btn btn-primary btn-xl page-scroll">Get Started</a> -->
+<donate-funds *ngIf="project" [thisId]='project.projectId'></donate-funds>
