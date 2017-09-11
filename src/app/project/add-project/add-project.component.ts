@@ -70,7 +70,6 @@ export class AddProjectComponent implements OnInit {
             votes: 0,
             accumulatedFunds: 0,
             targetFunds: 1000,
-            image: null
         };
     }
 

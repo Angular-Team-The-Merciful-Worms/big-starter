@@ -14,6 +14,6 @@ export interface IProject {
     targetFunds: number;
     upvotedBy?: string[];
 
-    imgUrl?: string;
+    imageUrl?: string;
     projectPicture?: Upload;
 }
