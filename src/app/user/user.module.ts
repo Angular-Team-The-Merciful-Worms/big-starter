@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../core/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
-import { UserProjectsComponent } from "./user-projects/user-projects.component";
+import { UserProjectsComponent } from './user-projects/user-projects.component';
 
 @NgModule({
   imports: [

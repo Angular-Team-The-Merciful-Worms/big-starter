@@ -10,7 +10,7 @@
         <form [formGroup]="userForm" (ngSubmit)="login()">
 
           <div class="form-group">
-            <label for="username" class="control-label">Username</label>
+            <label for="username" class="control-label">Email</label>
             <input formControlName="email" requiredtype="text" class="form-control" id="email" name="email" required="" placeholder="Your Email">
             <div *ngIf="formErrors.email" class="error"> {{ formErrors.email }} </div>
           </div>

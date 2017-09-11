@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IProject } from "../project";
+import { IProject } from '../project';
 
 @Component({
   selector: 'app-project-list-items',
@@ -9,13 +9,13 @@ import { IProject } from "../project";
 export class ProjectListItemsComponent implements OnInit {
   @Input() projects: IProject[];
   @Input() number: number;
-  
+
   constructor() { }
 
   ngOnInit() {
   }
 
   columnStyle(divider: number): string {
-    return "col-lg-" + 12/divider;
+    return 'col-lg-' + 12 / divider;
   }
 }

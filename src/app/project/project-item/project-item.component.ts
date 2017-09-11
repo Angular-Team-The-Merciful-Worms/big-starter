@@ -29,7 +29,7 @@ export class ProjectItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this._route.snapshot.paramMap.get('id') - 1;
+    const id = +this._route.snapshot.paramMap.get('id');
     this.initialize(id);
   }
   toggleVoteProject() {

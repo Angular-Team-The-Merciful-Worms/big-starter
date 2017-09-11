@@ -1,12 +1,16 @@
-import { DonateComponent } from './project-item/donate/donate.component';
-import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AuthGuard } from '../core/auth.guard';
+import { SharedModule } from './../shared/shared.module';
 
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { ProjectCategoriesComponent } from './project-categories/project-categories.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { DonateComponent } from './project-item/donate/donate.component';
 
 import { ProjectsFireService } from './projects-fire.service';
 import { ProjectService } from './projects-local.service';
@@ -16,20 +20,23 @@ import { ProjectListItemsComponent } from './project-list-items/project-list-ite
   imports: [
     SharedModule,
     RouterModule.forChild([
+      { path: 'projects/new', component: AddProjectComponent, canActivate: [AuthGuard] },
       { path: 'category/:category', component: ProjectsListComponent },
       { path: 'projects', component: ProjectCategoriesComponent },
       {
         path: 'projects/:id',
         component: ProjectItemComponent
       }
-    ])
+    ]),
+    ReactiveFormsModule,
   ],
   declarations: [
     ProjectsListComponent,
     ProjectItemComponent,
     ProjectCategoriesComponent,
     ProjectListItemsComponent,
-    DonateComponent
+    DonateComponent,
+    AddProjectComponent
   ],
   providers: [
     ProjectService,

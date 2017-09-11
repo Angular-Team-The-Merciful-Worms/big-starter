@@ -1,0 +1,84 @@
+<section class="project">
+    <div class="container">
+        <div class="project-box">
+            <h1 class="page-header">Create new project</h1>
+            <div class="row content">
+                <form [formGroup]="userForm" (ngSubmit)="this.createProject()">
+                    <div class="col-centered col-xs-8">
+                        <div class="form-group row">
+                            <label class="col-md-3 text-right control-label">Author:</label>
+                            <div class="col-md-9">
+                                <input readonly [(ngModel)]="this.project.authorName" name="authorName" id="authorName" formControlName="authorName" requiredtype="text"
+                                    class="form-control inactive" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 text-right control-label">Created on:</label>
+                            <div class="col-md-9">
+                                <input readonly [(ngModel)]="this.project.dateCreated" name="dateCreated" id="dateCreated" formControlName="dateCreated"
+                                    requiredtype="text" class="form-control inactive" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 text-right control-label">Project name:</label>
+                            <div class="col-md-9">
+                                <input [(ngModel)]="this.project.projectName" name="projectname" id="projectname" formControlName="projectname" requiredtype="text"
+                                    class="form-control" type="text">
+                                <div *ngIf="this.formErrors.projectname" class="error"> {{ formErrors.projectname }} </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3  text-right  control-label">Location:</label>
+                            <div class="col-md-9">
+                                <input [(ngModel)]="this.project.location" name="location" id="location" formControlName="location" requiredtype="text" class="form-control"
+                                    type="text">
+                                <div *ngIf="this.formErrors.location" class="error"> {{ formErrors.location }} </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3  text-right  control-label">Category:</label>
+                            <div class="col-md-9">
+                                <select [(ngModel)]="this.project.category" name="category" id="category" formControlName="category" class="form-control"
+                                    required>
+                                            <option selected="selected" value="Individual">Individual</option>
+                                            <option value="Community">Community</option>
+                                            <option value="Group">Group</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3  text-right  control-label">Target Funds:</label>
+                            <div class="col-md-9">
+                                <input [(ngModel)]="this.project.targetFunds" name="targetFunds" id="targetFunds" formControlName="targetFunds" requiredtype="number"
+                                    class="form-control" type="number">
+                                <div *ngIf="formErrors.targetFunds" class="error"> {{ formErrors.targetFunds }} </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3  text-right  control-label">Project Picture:</label>
+                            <div class="col-md-9">
+                                <input type="file" (change)="this.detectFiles($event)" accept="image/*" class="text-center center-block well well-sm picture">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3   text-right control-label">Project Description:</label>
+                            <div class="col-md-9">
+                                <textarea [(ngModel)]="this.project.description" name="description" id="description" formControlName="description" requiredtype="text"
+                                    class="form-control">
+                                </textarea>
+                                <div *ngIf="formErrors.description" class="error"> {{ formErrors.description }} </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="text-right col-md-9">
+                                <button [disabled]="!userForm.valid || !this.uploaded" class="btn btn-info custom-btn" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
