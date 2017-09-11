@@ -1,3 +1,4 @@
+import { Upload } from './../../core/upload';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
@@ -16,6 +17,7 @@ import { ProjectsFireService } from '../projects-fire.service';
 })
 export class AddProjectComponent implements OnInit {
 
+    currentUpload: Upload;
     userForm: FormGroup;
     selectedFiles: FileList;
     user: User;
@@ -109,10 +111,16 @@ export class AddProjectComponent implements OnInit {
     }
 
     createProject() {
-        console.log(this.project);
+        this.projectService.createNewProject(this.project);
+        this.uploadProjectPic();
+        this.projectService.setProjectId(this.project.projectId + 1);
     }
 
-    uploadProfilePic() {
+    uploadProjectPic() {
+        const file = this.selectedFiles.item(0);
+        this.currentUpload = new Upload(file);
+        this.uploadService
+            .uploadProjectPicture(this.currentUpload, this.project.projectId);
     }
 
     detectFiles(event) {
@@ -152,9 +160,8 @@ export class AddProjectComponent implements OnInit {
         this.projectService
             .getNextProjectId()
             .subscribe((i) => {
-                const id = +i['$value'];
+                const id = +i['value'] || +i['$value'];
                 this.project.projectId = id;
-                this.projectService.increMentProjectId(id);
             });
     }
 }

@@ -15,5 +15,5 @@ export interface IProject {
     upvotedBy?: string[];
 
     imgUrl?: string;
-    image?: Upload;
+    projectPicture?: Upload;
 }

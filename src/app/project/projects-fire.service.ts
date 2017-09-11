@@ -20,8 +20,8 @@ export class ProjectsFireService {
         return this.db.object('projectId/projectId');
     }
 
-    increMentProjectId(value: number) {
-        return this.db.object('projectId/projectId').update(value);
+    setProjectId(value: number) {
+        return this.db.object('projectId/projectId').set(value);
     }
 
     // unclear if a better way to extract id?
@@ -48,6 +48,10 @@ export class ProjectsFireService {
     getProjectsByCategory(category: string): Observable<IProject[]> {
         return this.getProjects()
             .map(projs => projs.filter(p => p.category === category)) as Observable<IProject[]>;
+    }
+
+    createNewProject(project: IProject) {
+        return this.db.object('projects/' + project.projectId).set(project);
     }
 
     // not sure it works for FireBase - does not hurt atm

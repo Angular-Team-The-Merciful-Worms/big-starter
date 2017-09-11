@@ -13,6 +13,11 @@ export class UploadService {
     upload: FirebaseObjectObservable<Upload>;
     uploads: FirebaseListObservable<Upload[]>;
 
+    public uploadProjectPicture(upload: Upload, id: number) {
+        const path = '/projects/' + id + '/projectPicture';
+        this.pushUpload(upload, path);
+    }
+
     public getProfilePicture() {
         const path = this.basePath + this.authService.currentUserId + '/profilePicture/avatar';
         return this.getUpload(path);
