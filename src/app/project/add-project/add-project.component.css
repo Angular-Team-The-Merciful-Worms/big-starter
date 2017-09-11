@@ -1,0 +1,45 @@
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+.project{
+    margin-top: 100px;
+}
+.project-box {
+    background-color: #444;
+    box-shadow: 2px 2px 3px #000;
+    padding: 2em;
+}
+
+.content{
+    padding: 2em 0 2em 0;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.content{
+    padding: 4em 0 1em 0;
+}
+
+.custom-btn{
+    border: 1px solid white;
+    margin-top: 5px;
+}
+
+textarea {
+    resize: vertical; 
+    height: 10em;
+}
+
+.inactive{
+    background-color: rgb(184, 184, 184);
+}
+
+.picture{
+    width: 100%;
+    text-align: right;
+}

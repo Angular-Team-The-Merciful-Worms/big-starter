@@ -1,3 +1,5 @@
+import { Upload } from '../core/upload';
+
 export interface IProject {
     authorId?: string;
     projectId: number;
@@ -5,10 +7,13 @@ export interface IProject {
     authorName: string;
     description: string;
     category: string;
-    location: number;
-    dateCreated: number;
-    votes: string;
+    location: string;
+    dateCreated: string;
+    votes: number;
     accumulatedFunds: number;
     targetFunds: number;
-    imageUrl: string;
+    upvotedBy?: string[];
+
+    imgUrl?: string;
+    image?: Upload;
 }
