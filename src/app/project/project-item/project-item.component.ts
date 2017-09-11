@@ -32,7 +32,6 @@ export class ProjectItemComponent implements OnInit {
     const id = +this._route.snapshot.paramMap.get('id') - 1;
     this.initialize(id);
   }
-
   toggleVoteProject() {
     if (this.votedFor) {
       this.project.upvotedBy.splice(this.indexVotedfor, 1);
