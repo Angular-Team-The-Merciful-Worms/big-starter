@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#short-description" class="page-scroll">Intro</a></li>
                 <li><a [routerLink]="['/projects']" class="page-scroll">Projects</a></li>
-                <li *ngIf="auth.authenticated"><a [routerLink]="['/projects/add-project']" class="page-scroll">Add project</a></li>
+                <li *ngIf="auth.authenticated"><a [routerLink]="['/projects/new']" class="page-scroll">Add project</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="!auth.authenticated">
