@@ -45,14 +45,14 @@ export class ProfileComponent implements OnInit {
       'maxlength': 'First name cannot be more than 40 characters long.',
     },
     'lastname': {
-      'required': 'Last name name is required.',
+      'required': 'Last name is required.',
       'minlength': 'Last name must be at least 2 characters long.',
       'maxlength': 'Last name cannot be more than 40 characters long.',
     },
     'name': {
-      'required': 'Username name is required.',
-      'minlength': 'Username name must be at least 4 characters long.',
-      'maxlength': 'Username name cannot be more than 80 characters long.',
+      'required': 'Username is required.',
+      'minlength': 'Username must be at least 4 characters long.',
+      'maxlength': 'Username cannot be more than 80 characters long.',
     },
     'balance': {
       'required': 'Balance is required.',
