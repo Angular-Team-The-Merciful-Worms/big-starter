@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { AuthService } from '../../core/auth.service';
 import { UploadService } from '../../core/upload.service';
 
 import { User } from './../../user/user';
 import { IProject } from './../project';
+import { ProjectsFireService } from '../projects-fire.service';
 
 @Component({
     selector: 'app-add-project-profile',
@@ -15,27 +17,16 @@ import { IProject } from './../project';
 export class AddProjectComponent implements OnInit {
 
     userForm: FormGroup;
-    project = {
-        authorName: '',
-        projectId: -1,
-        projectName: '',
-        description: '',
-        category: 'Individual',
-        location: '',
-        dateCreated: '',
-        votes: 1,
-        accumulatedFunds: 0,
-        targetFunds: 0,
-        image: null
-    };
     selectedFiles: FileList;
     user: User;
+    project: IProject;
+    uploaded = false;
 
     formErrors = {
         'projectname': '',
         'location': '',
         'targetFunds': '',
-        'descirpiton': '',
+        'description': '',
     };
 
     validationMessages = {
@@ -44,28 +35,47 @@ export class AddProjectComponent implements OnInit {
             'minlength': 'Project name must be at least 4 characters long.',
             'maxlength': 'First name cannot be more than 25 characters long.',
         },
-        'loaction': {
+        'location': {
             'required': 'Location is required.',
             'minlength': 'Location must be at least 2 characters long.',
             'maxlength': 'Location cannot be more than 25 characters long.',
         },
-        'descirpiton': {
+        'targetFunds': {
+            'required': 'Target funds is required.',
+            'min': 'Target funds should be a higher than $1,000',
+        },
+        'description': {
             'required': 'Description is required.',
             'minlength': 'Description must be at least 250 characters long.',
             'maxlength': 'Description cannot be more than 25,000 characters long.',
         },
-        'balance': {
-            'required': 'Balance is required.',
-            'min': 'Balance should be a non negative number',
-        },
     };
 
-    constructor(private authService: AuthService, private fb: FormBuilder, private uploadService: UploadService) {
+    constructor(
+        private authService: AuthService,
+        private fb: FormBuilder,
+        private uploadService: UploadService,
+        private projectService: ProjectsFireService) {
+
+        this.project = {
+            authorName: 'aaa',
+            projectId: -1,
+            projectName: '',
+            description: '',
+            category: 'Individual',
+            location: '',
+            dateCreated: new DatePipe('en').transform(Date.now(), 'yyyy-MM-dd'),
+            votes: 0,
+            accumulatedFunds: 0,
+            targetFunds: 1000,
+            image: null
+        };
     }
 
     ngOnInit(): void {
-        // this.getUserData();
+        this.getUserData();
         this.buildForm();
+        this.getProjectId();
     }
 
     buildForm(): void {
@@ -107,6 +117,7 @@ export class AddProjectComponent implements OnInit {
 
     detectFiles(event) {
         this.selectedFiles = event.target.files;
+        this.uploaded = true;
     }
 
     onValueChanged(data?: any) {
@@ -133,7 +144,17 @@ export class AddProjectComponent implements OnInit {
         this.authService.currentUserData()
             .subscribe(u => {
                 this.user = u;
-                this.project.authorName = u.name;
+                this.project.authorName = u.firstname + ' ' + u.lastname;
+            });
+    }
+
+    getProjectId() {
+        this.projectService
+            .getNextProjectId()
+            .subscribe((i) => {
+                const id = +i['$value'];
+                this.project.projectId = id;
+                this.projectService.increMentProjectId(id);
             });
     }
 }

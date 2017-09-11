@@ -64,16 +64,16 @@
                             <label class="col-md-3   text-right control-label">Project Description:</label>
                             <div class="col-md-9">
                                 <textarea [(ngModel)]="this.project.description" name="description" id="description" formControlName="description" requiredtype="text"
-                                    class="form-control" type="text">
+                                    class="form-control">
                                 </textarea>
-                                <div *ngIf="formErrors.descirpiton" class="error"> {{ formErrors.descirpiton }} </div>
+                                <div *ngIf="formErrors.description" class="error"> {{ formErrors.description }} </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-md-3 control-label"></label>
                             <div class="text-right col-md-9">
-                                <button [disabled]="!userForm.valid" class="btn btn-info custom-btn" type="submit">Submit</button>
+                                <button [disabled]="!userForm.valid || !this.uploaded" class="btn btn-info custom-btn" type="submit">Submit</button>
                             </div>
                         </div>
                     </div>

@@ -16,6 +16,14 @@ export class ProjectsFireService {
         return this.db.object('/projects/' + uid) as Observable<IProject>;
     }
 
+    getNextProjectId() {
+        return this.db.object('projectId/projectId');
+    }
+
+    increMentProjectId(value: number) {
+        return this.db.object('projectId/projectId').update(value);
+    }
+
     // unclear if a better way to extract id?
     getProjects(): Observable<IProject[]> {
         return this.db.list('/projects')
